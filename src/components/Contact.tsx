@@ -114,7 +114,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-1 gap-16 w-[500px] mx-auto">
+        <div className="grid lg:grid-cols-1 gap-16 w-full max-w-md mx-auto px-4">
           {/* Contact Information */}
           <div>
             <h3

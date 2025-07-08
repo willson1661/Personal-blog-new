@@ -171,6 +171,16 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                 title: 'Web-Designer',
                 company: 'Tech Mahindra Co.',
               },
+              {
+                year: 'Nov 2020 – Oct 2021',
+                title: 'Freelance Web Designer',
+                company: 'Self-employed',
+              },
+              {
+                year: 'Nov 2018 – Oct 2019',
+                title: 'BPO Executive',
+                company: 'Private BPO Firm',
+              },
             ].map((exp, index) => (
               <div
                 key={index}
