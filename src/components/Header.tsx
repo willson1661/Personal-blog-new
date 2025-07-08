@@ -48,13 +48,23 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1
-              className={`text-2xl font-bold ${
-                darkMode ? 'text-white' : 'text-gray-900'
-              }`}
-            >
-              WM
-            </h1>
+          <img
+  key={darkMode ? 'dark' : 'light'} // Force React to re-render on theme switch
+  src={
+    darkMode
+      ? 'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/Logo.png?alt=media&token=1d42ff05-4b63-4f53-bb46-1eab4706969a'
+      : 'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/black%20logo.png?alt=media&token=81160166-2bbd-49ee-b98b-fd77d96619da'
+  }
+  alt="Logo"
+  width="120"
+  className="transition-opacity duration-200 opacity-100"
+/>
+
+     
+ 
+
+
+            
           </div>
 
           {/* Desktop Navigation */}

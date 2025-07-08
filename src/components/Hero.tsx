@@ -51,17 +51,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           {/* Content */}
           <div className="text-center lg:text-left">
             <div className="mb-6">
-              <span
-                className={`inline-block px-4 py-2 rounded-full text-sm font-medium 
-                ${
-                  darkMode
-                    ? 'bg-blue-900/50 text-blue-300'
-                    : 'bg-blue-100 text-blue-800'
-                } 
-                animate-pulse`}
-              >
-                👋 Welcome to my portfolio
-              </span>
+            
             </div>
 
             <h1
@@ -70,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             >
               Hi, I'm{' '}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Willson Raj manda
+                Willson Raj Manda
               </span>
             </h1>
 
