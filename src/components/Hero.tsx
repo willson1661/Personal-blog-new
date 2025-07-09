@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, Download, Play, Target } from 'lucide-react';
 import ThreeHero from './ThreeHero';
+import ThreeProfileImage from './ThreeProfileImage';
 
 interface HeroProps {
   darkMode: boolean;
@@ -112,27 +113,11 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
 
           {/* Profile Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div
-                className={`w-80 h-80 rounded-full ${
-                  darkMode
-                    ? 'bg-gradient-to-br from-blue-600 to-purple-600'
-                    : 'bg-gradient-to-br from-blue-500 to-purple-500'
-                } 
-  p-1 animate-pulse`}
-              >
-                <div
-                  className={`w-full h-full rounded-full overflow-hidden ${
-                    darkMode ? 'bg-gray-800' : 'bg-white'
-                  }`}
-                >
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/WhatsApp%20Image%202025-04-21%20at%2011.09.01_c18a96a3%20(1).png?alt=media&token=4df8c10b-85d6-4aa2-af15-bcb9895067da"
-                    alt="Willson Raj Manda"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+            <div className="relative group">
+              <ThreeProfileImage 
+                darkMode={darkMode}
+                imageUrl="https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/WhatsApp%20Image%202025-04-21%20at%2011.09.01_c18a96a3%20(1).png?alt=media&token=4df8c10b-85d6-4aa2-af15-bcb9895067da"
+              />
 
               {/* Floating Elements */}
               <div
@@ -150,6 +135,13 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 rounded-full flex items-center justify-center text-white text-xl animate-pulse`}
               >
                 🚀
+              </div>
+              
+              {/* Interactive hint */}
+              <div className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm ${
+                darkMode ? 'text-gray-400' : 'text-gray-600'
+              } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
+                Move your cursor over me!
               </div>
             </div>
           </div>
