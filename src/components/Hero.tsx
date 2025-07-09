@@ -29,7 +29,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
   return (
     <motion.section
       id="home"
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden 
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden z-[10]
       ${
         darkMode
           ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900'
@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
         ></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-[11]">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <AnimatedSection className="text-center lg:text-left" delay={0.2}>
@@ -64,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
               transition={{ duration: 0.8, delay: 0.5 }}
             >
               Hi, I'm{' '}
-              <motion.span 
+              <motion.span
                 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -100,8 +100,8 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative z-[12]"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
@@ -109,15 +109,16 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
               <InteractiveCard>
                 <button
                   onClick={handleDownload}
-                  className={`group ${
+                  className={`group relative ${
                     darkMode
                       ? 'bg-gray-800 text-white hover:bg-gray-700'
                       : 'bg-white text-gray-900 hover:bg-gray-50'
                   } 
-    px-8 py-4 rounded-lg font-semibold border-2 ${
-      darkMode ? 'border-gray-700' : 'border-gray-200'
-    } 
-    hover:shadow-lg transition-all duration-300 flex items-center justify-center`}
+  px-8 py-4 rounded-lg font-semibold border-2 ${
+    darkMode ? 'border-gray-700' : 'border-gray-200'
+  } 
+  hover:shadow-lg transition-all duration-300 flex items-center justify-center`}
+                  style={{ pointerEvents: 'auto' }}
                 >
                   <Download
                     size={20}
@@ -130,7 +131,10 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           </AnimatedSection>
 
           {/* Profile Image */}
-          <AnimatedSection className="flex justify-center lg:justify-end" delay={0.6}>
+          <AnimatedSection
+            className="flex justify-center lg:justify-end"
+            delay={0.6}
+          >
             <InteractiveCard hoverScale={1.1} rotateOnHover={true}>
               <div className="relative">
                 <motion.div
@@ -139,14 +143,6 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                       ? 'bg-gradient-to-br from-blue-600 to-purple-600'
                       : 'bg-gradient-to-br from-blue-500 to-purple-500'
                   } p-1`}
-                  animate={{ 
-                    rotate: [0, 360],
-                    scale: [1, 1.05, 1]
-                  }}
-                  transition={{ 
-                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                  }}
                 >
                   <div
                     className={`w-full h-full rounded-full overflow-hidden ${
@@ -166,14 +162,14 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                   className={`absolute -top-4 -right-4 w-16 h-16 ${
                     darkMode ? 'bg-blue-600' : 'bg-blue-500'
                   } rounded-full flex items-center justify-center text-white text-2xl`}
-                  animate={{ 
+                  animate={{
                     y: [-10, 10, -10],
-                    rotate: [0, 180, 360]
+                    rotate: [0, 180, 360],
                   }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity, 
-                    ease: "easeInOut" 
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
                   }}
                 >
                   ⚡
@@ -182,15 +178,15 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                   className={`absolute -bottom-4 -left-4 w-12 h-12 ${
                     darkMode ? 'bg-purple-600' : 'bg-purple-500'
                   } rounded-full flex items-center justify-center text-white text-xl`}
-                  animate={{ 
+                  animate={{
                     x: [-5, 5, -5],
-                    scale: [1, 1.2, 1]
+                    scale: [1, 1.2, 1],
                   }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity, 
-                    ease: "easeInOut",
-                    delay: 1
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 1,
                   }}
                 >
                   🚀
@@ -201,8 +197,8 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
         </div>
 
         {/* Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        <motion.div
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-[12]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 2 }}
@@ -215,9 +211,10 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 : 'text-gray-600 hover:text-gray-900'
             } transition-colors duration-300`}
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
+            style={{ pointerEvents: 'auto' }}
           >
             <ArrowDown size={24} />
           </motion.button>

@@ -62,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
         >
           {/* Brand Section */}
           <AnimatedSection className="lg:col-span-2" delay={0.2}>
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -80,7 +80,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             >
               Willson Raj Manda
             </motion.h3>
-            <motion.p 
+            <motion.p
               className="text-gray-300 mb-6 max-w-md leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-all duration-300 group"
+                      className="p-4 min-w-12 min-h-12 bg-gray-800 rounded-xl hover:bg-gray-700 transition-all duration-300 group flex items-center justify-center"
                       title={social.name}
                     >
                       <motion.div
@@ -125,7 +125,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
 
           {/* Quick Links */}
           <AnimatedSection delay={0.4}>
-            <motion.h4 
+            <motion.h4
               className="text-lg font-semibold mb-4"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -136,7 +136,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             </motion.h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
-                <motion.li 
+                <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -158,7 +158,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
 
           {/* Contact Info */}
           <AnimatedSection delay={0.6}>
-            <motion.h4 
+            <motion.h4
               className="text-lg font-semibold mb-4"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -190,7 +190,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               >
                 9052820829
               </motion.a>
-              <motion.p 
+              <motion.p
                 className="text-gray-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -206,14 +206,14 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
         {/* Newsletter Signup */}
 
         {/* Bottom Section */}
-        <motion.div 
+        <motion.div
           className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <motion.div 
+          <motion.div
             className="flex items-center text-gray-300 mb-4 md:mb-0"
             whileHover={{ scale: 1.05 }}
           >
@@ -227,7 +227,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <span>by Willson Raj Manda</span>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="text-gray-300 text-center md:text-right"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -249,16 +249,14 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 2 }}
-        whileHover={{ 
-          scale: 1.1, 
-          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" 
+        whileHover={{
+          scale: 1.1,
+          boxShadow:
+            '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         }}
         whileTap={{ scale: 0.9 }}
       >
-        <motion.div
-          whileHover={{ y: -2 }}
-          transition={{ duration: 0.3 }}
-        >
+        <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.3 }}>
           <ArrowUp className="w-6 h-6" />
         </motion.div>
       </motion.button>

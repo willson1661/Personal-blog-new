@@ -164,13 +164,16 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                     </div>
                     <div className="space-y-2">
                       {skill.items.map((item, itemIndex) => (
-                        <motion.div 
-                          key={itemIndex} 
+                        <motion.div
+                          key={itemIndex}
                           className="flex items-center"
                           initial={{ opacity: 0, x: -20 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: (index * 0.1) + (itemIndex * 0.05) }}
+                          transition={{
+                            duration: 0.4,
+                            delay: index * 0.1 + itemIndex * 0.05,
+                          }}
                         >
                           <motion.div
                             className={`w-2 h-2 rounded-full mr-3 ${
@@ -211,13 +214,13 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
           </motion.h3>
           <div className="relative">
             <motion.div
-              className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full 
+              className={`absolute left-1/2 transform translate-x-1/2 w-1 h-full 
               ${darkMode ? 'bg-gray-600' : 'bg-gray-300'}`}
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-              style={{ transformOrigin: "top" }}
+              transition={{ duration: 1.5, ease: 'easeInOut' }}
+              style={{ transformOrigin: 'top' }}
             ></motion.div>
 
             {[
