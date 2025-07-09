@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDown, Download, Play, Target } from 'lucide-react';
+import ThreeHero from './ThreeHero';
 
 interface HeroProps {
   darkMode: boolean;
@@ -26,13 +27,14 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
   return (
     <section
       id="home"
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden 
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden
       ${
         darkMode
           ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900'
           : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
       }`}
     >
+      <ThreeHero darkMode={darkMode} />
       {/* Background Pattern */}
       <div className="absolute opacity-10">
         <div
