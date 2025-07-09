@@ -5,7 +5,6 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ThreeBackground from './components/ThreeBackground';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -42,7 +41,6 @@ function App() {
         darkMode ? 'dark' : ''
       }`}
     >
-      <ThreeBackground darkMode={darkMode} />
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <main>
         <Hero darkMode={darkMode} />

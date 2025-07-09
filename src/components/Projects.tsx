@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ExternalLink, Github, Filter, Search } from 'lucide-react';
-import ThreeProjects from './ThreeProjects';
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -119,7 +118,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 relative z-10">
+        <div className="text-center mb-16">
           <h2
             className={`text-4xl font-bold mb-4 ${
               darkMode ? 'text-white' : 'text-gray-900'
@@ -133,7 +132,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
 
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
-          <div className="mb-16 relative z-10">
+          <div className="mb-16">
             <h3
               className={`text-2xl font-bold mb-8 ${
                 darkMode ? 'text-white' : 'text-gray-900'
@@ -156,7 +155,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
 
         {/* Regular Projects */}
         {regularProjects.length > 0 && (
-          <div className="relative z-10">
+          <div>
             <h3
               className={`text-2xl font-bold mb-8 ${
                 darkMode ? 'text-white' : 'text-gray-900'
@@ -178,7 +177,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
 
         {/* No Results */}
         {filteredProjects.length === 0 && (
-          <div className="text-center py-16 relative z-10">
+          <div className="text-center py-16">
             <div
               className={`text-6xl mb-4 ${
                 darkMode ? 'text-gray-600' : 'text-gray-400'

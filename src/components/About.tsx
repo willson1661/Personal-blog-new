@@ -1,6 +1,5 @@
 import React from 'react';
 import { Code, Palette, Zap, Users, Award, Coffee } from 'lucide-react';
-import ThreeSkills from './ThreeSkills';
 
 interface AboutProps {
   darkMode: boolean;
@@ -34,11 +33,8 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
   return (
     <section
       id="about"
-      className={`py-20 relative ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}
+      className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}
     >
-      <div className="absolute inset-0 h-96 top-1/2 transform -translate-y-1/2">
-        <ThreeSkills darkMode={darkMode} />
-      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -150,7 +146,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
         </div>
 
         {/* Experience Timeline */}
-        <div className="mt-20 relative z-10">
+        <div className="mt-20">
           <h3
             className={`text-2xl font-bold mb-12 text-center ${
               darkMode ? 'text-white' : 'text-gray-900'
