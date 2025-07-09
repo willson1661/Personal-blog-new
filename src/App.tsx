@@ -62,6 +62,7 @@ function App() {
         <Footer darkMode={darkMode} />
       </motion.div>
     </AnimatePresence>
+  )
   );
 }
 
