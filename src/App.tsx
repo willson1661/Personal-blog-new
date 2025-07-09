@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ThreeBackground from './components/ThreeBackground';
+import FloatingElements from './components/FloatingElements';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -37,20 +40,28 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen transition-colors duration-300 ${
-        darkMode ? 'dark' : ''
-      }`}
-    >
-      <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <main>
-        <Hero darkMode={darkMode} />
-        <About darkMode={darkMode} />
-        <Projects darkMode={darkMode} />
-
-        <Contact darkMode={darkMode} />
-      </main>
-      <Footer darkMode={darkMode} />
-    </div>
+    <AnimatePresence>
+      <motion.div
+        className={`min-h-screen transition-colors duration-500 ${
+          darkMode ? 'dark' : ''
+        }`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <ThreeBackground darkMode={darkMode} />
+        <FloatingElements darkMode={darkMode} />
+        
+        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <main className="relative z-10">
+          <Hero darkMode={darkMode} />
+          <About darkMode={darkMode} />
+          <Projects darkMode={darkMode} />
+          <Contact darkMode={darkMode} />
+        </main>
+        <Footer darkMode={darkMode} />
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

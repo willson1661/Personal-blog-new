@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   Mail,
   Phone,
@@ -10,6 +11,8 @@ import {
   MessageCircle,
   CheckCircle,
 } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+import InteractiveCard from './InteractiveCard';
 
 interface ContactProps {
   darkMode: boolean;
@@ -98,106 +101,126 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
   ];
 
   return (
-    <section
+    <motion.section
       id="contact"
       className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className=" mb-16">
-          <h2
+        <AnimatedSection className="mb-16">
+          <motion.h2
             className={`text-4xl text-center font-bold mb-4 ${
               darkMode ? 'text-white' : 'text-gray-900'
             }`}
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             CONTACT
-          </h2>
-        </div>
+          </motion.h2>
+        </AnimatedSection>
 
         <div className="grid lg:grid-cols-1 gap-16 w-full max-w-md mx-auto px-4">
           {/* Contact Information */}
-          <div>
-            <h3
+          <AnimatedSection delay={0.3}>
+            <motion.h3
               className={`text-2xl font-bold mb-8 ${
                 darkMode ? 'text-white' : 'text-gray-900'
               }`}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
               Let's Connect
-            </h3>
+            </motion.h3>
 
-            <p
+            <motion.p
               className={`text-lg mb-8 ${
                 darkMode ? 'text-gray-300' : 'text-gray-700'
               } leading-relaxed`}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               I'm always open to discussing new opportunities, interesting
               projects, or just having a chat about technology and development.
               Feel free to reach out through any of the channels below.
-            </p>
+            </motion.p>
 
             {/* Contact Info Cards */}
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
-                <a
+                <motion.div
                   key={index}
-                  href={info.link}
-                  target={info.link.startsWith('http') ? '_blank' : undefined}
-                  rel={
-                    info.link.startsWith('http')
-                      ? 'noopener noreferrer'
-                      : undefined
-                  }
-                  className={`flex items-center p-4 rounded-lg ${
-                    darkMode
-                      ? 'bg-gray-800 hover:bg-gray-700'
-                      : 'bg-gray-50 hover:bg-gray-100'
-                  } 
-                    transition-all duration-300 hover:scale-105 group`}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div
-                    className={`p-3 rounded-lg ${
-                      darkMode ? 'bg-blue-600' : 'bg-blue-100'
-                    } mr-4 
-                    group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <info.icon
-                      className={`w-6 h-6 ${
-                        darkMode ? 'text-white' : 'text-blue-600'
-                      }`}
-                    />
-                  </div>
-                  <div>
-                    <h4
-                      className={`font-semibold ${
-                        darkMode ? 'text-white' : 'text-gray-900'
-                      }`}
+                  <InteractiveCard hoverScale={1.05}>
+                    <a
+                      href={info.link}
+                      target={info.link.startsWith('http') ? '_blank' : undefined}
+                      rel={
+                        info.link.startsWith('http')
+                          ? 'noopener noreferrer'
+                          : undefined
+                      }
+                      className={`flex items-center p-4 rounded-lg ${
+                        darkMode
+                          ? 'bg-gray-800 hover:bg-gray-700'
+                          : 'bg-gray-50 hover:bg-gray-100'
+                      } transition-all duration-300 group`}
                     >
-                      {info.title}
-                    </h4>
-                    <p
-                      className={`${
-                        darkMode ? 'text-gray-300' : 'text-gray-600'
-                      }`}
-                    >
-                      {info.value}
-                    </p>
-                  </div>
-                </a>
+                      <motion.div
+                        className={`p-3 rounded-lg ${
+                          darkMode ? 'bg-blue-600' : 'bg-blue-100'
+                        } mr-4`}
+                        whileHover={{ scale: 1.1, rotate: 360 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <info.icon
+                          className={`w-6 h-6 ${
+                            darkMode ? 'text-white' : 'text-blue-600'
+                          }`}
+                        />
+                      </motion.div>
+                      <div>
+                        <h4
+                          className={`font-semibold ${
+                            darkMode ? 'text-white' : 'text-gray-900'
+                          }`}
+                        >
+                          {info.title}
+                        </h4>
+                        <p
+                          className={`${
+                            darkMode ? 'text-gray-300' : 'text-gray-600'
+                          }`}
+                        >
+                          {info.value}
+                        </p>
+                      </div>
+                    </a>
+                  </InteractiveCard>
+                </motion.div>
               ))}
             </div>
-
-            {/* Social Links */}
-            <div></div>
-
-            {/* Availability Status */}
-          </div>
+          </AnimatedSection>
 
           {/* Contact Form */}
         </div>
 
         {/* Call to Action */}
       </div>
-    </section>
+    </motion.section>
   );
 };
 

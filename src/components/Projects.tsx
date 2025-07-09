@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { ExternalLink, Github, Filter, Search } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+import InteractiveCard from './InteractiveCard';
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -112,67 +115,97 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
   );
 
   return (
-    <section
+    <motion.section
       id="projects"
       className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2
+        <AnimatedSection className="text-center mb-16">
+          <motion.h2
             className={`text-4xl font-bold mb-4 ${
               darkMode ? 'text-white' : 'text-gray-900'
             }`}
+            initial={{ opacity: 0, y: -50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             PROJECTS
-          </h2>
-        </div>
+          </motion.h2>
+        </AnimatedSection>
 
         {/* Filters and Search */}
 
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
-          <div className="mb-16">
-            <h3
+          <AnimatedSection className="mb-16" delay={0.3}>
+            <motion.h3
               className={`text-2xl font-bold mb-8 ${
                 darkMode ? 'text-white' : 'text-gray-900'
               }`}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
               ⭐ Featured Projects
-            </h3>
+            </motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProjects.map((project) => (
-                <ProjectCard
+              {featuredProjects.map((project, index) => (
+                <motion.div
                   key={project.id}
-                  project={project}
-                  darkMode={darkMode}
-                  featured
-                />
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <ProjectCard
+                    project={project}
+                    darkMode={darkMode}
+                    featured
+                  />
+                </motion.div>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
         )}
 
         {/* Regular Projects */}
         {regularProjects.length > 0 && (
-          <div>
-            <h3
+          <AnimatedSection delay={0.5}>
+            <motion.h3
               className={`text-2xl font-bold mb-8 ${
                 darkMode ? 'text-white' : 'text-gray-900'
               }`}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
               All Projects
-            </h3>
+            </motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regularProjects.map((project) => (
-                <ProjectCard
+              {regularProjects.map((project, index) => (
+                <motion.div
                   key={project.id}
-                  project={project}
-                  darkMode={darkMode}
-                />
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  <ProjectCard
+                    project={project}
+                    darkMode={darkMode}
+                  />
+                </motion.div>
               ))}
             </div>
-          </div>
+          </AnimatedSection>
         )}
 
         {/* No Results */}
@@ -198,7 +231,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
           </div>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 };
 
@@ -214,143 +247,171 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   featured = false,
 }) => {
   return (
-    <div
+    <InteractiveCard
       className={`group relative overflow-hidden rounded-xl ${
         darkMode ? 'bg-gray-800' : 'bg-white'
-      } 
-      shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 
-      ${
+      } shadow-lg ${
         featured ? 'ring-2 ring-gradient-to-r from-blue-600 to-purple-600' : ''
       }`}
+      hoverScale={1.05}
+      rotateOnHover={true}
     >
-      {/* Featured Badge */}
-      {featured && (
-        <div
-          className="absolute top-4 right-4 z-10 bg-gradient-to-r from-blue-600 to-purple-600 
-          text-white px-3 py-1 rounded-full text-sm font-medium"
-        >
-          Featured
-        </div>
-      )}
+      <motion.div
+        whileHover={{ y: -5 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Featured Badge */}
+        {featured && (
+          <motion.div
+            className="absolute top-4 right-4 z-10 bg-gradient-to-r from-blue-600 to-purple-600 
+            text-white px-3 py-1 rounded-full text-sm font-medium"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            Featured
+          </motion.div>
+        )}
 
-      {/* Image */}
-      <div className="relative overflow-hidden h-48">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 
-          group-hover:opacity-100 transition-opacity duration-300"
-        ></div>
+        {/* Image */}
+        <div className="relative overflow-hidden h-48">
+          <motion.img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.5 }}
+          />
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          ></motion.div>
 
-        {/* Overlay Links */}
-        <div
-          className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 
-          group-hover:opacity-100 transition-opacity duration-300"
-        >
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 
-               transition-colors duration-200"
+          {/* Overlay Links */}
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center space-x-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileHover={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
           >
-            <Github size={20} />
-          </a>
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 
-               transition-colors duration-200"
-          >
-            <ExternalLink size={20} />
-          </a>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-3">
-          <h3
-            className={`text-xl font-bold ${
-              darkMode ? 'text-white' : 'text-gray-900'
-            }`}
-          >
-            {project.title}
-          </h3>
-          <span
-            className={`px-2 py-1 rounded-full text-xs font-medium 
-            ${
-              darkMode
-                ? 'bg-blue-900/50 text-blue-300'
-                : 'bg-blue-100 text-blue-800'
-            }`}
-          >
-            {project.category}
-          </span>
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 
+                 transition-colors duration-200"
+              whileHover={{ scale: 1.1, rotate: 360 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Github size={20} />
+            </motion.a>
+            <motion.a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 
+                 transition-colors duration-200"
+              whileHover={{ scale: 1.1, rotate: -360 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ExternalLink size={20} />
+            </motion.a>
+          </motion.div>
         </div>
 
-        <p
-          className={`${
-            darkMode ? 'text-gray-300' : 'text-gray-600'
-          } mb-4 line-clamp-3`}
-        >
-          {project.description}
-        </p>
-
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech: string, index: number) => (
-            <span
-              key={index}
-              className={`px-2 py-1 rounded text-xs font-medium 
+        {/* Content */}
+        <div className="p-6">
+          <div className="flex items-center justify-between mb-3">
+            <motion.h3
+              className={`text-xl font-bold ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              {project.title}
+            </motion.h3>
+            <motion.span
+              className={`px-2 py-1 rounded-full text-xs font-medium 
               ${
                 darkMode
-                  ? 'bg-gray-700 text-gray-300'
-                  : 'bg-gray-100 text-gray-700'
+                  ? 'bg-blue-900/50 text-blue-300'
+                  : 'bg-blue-100 text-blue-800'
               }`}
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.2 }}
             >
-              {tech}
-            </span>
-          ))}
-        </div>
+              {project.category}
+            </motion.span>
+          </div>
 
-        {/* Links */}
-        <div className="flex space-x-4">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center text-sm font-medium ${
-              darkMode
-                ? 'text-gray-300 hover:text-white'
-                : 'text-gray-700 hover:text-gray-900'
-            } 
-               transition-colors duration-200`}
+          <p
+            className={`${
+              darkMode ? 'text-gray-300' : 'text-gray-600'
+            } mb-4 line-clamp-3`}
           >
-            <Github size={16} className="mr-2" />
-            Code
-          </a>
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center text-sm font-medium ${
-              darkMode
-                ? 'text-blue-400 hover:text-blue-300'
-                : 'text-blue-600 hover:text-blue-700'
-            } 
-               transition-colors duration-200`}
-          >
-            <ExternalLink size={16} className="mr-2" />
-            Live Demo
-          </a>
+            {project.description}
+          </p>
+
+          {/* Technologies */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.technologies.map((tech: string, index: number) => (
+              <motion.span
+                key={index}
+                className={`px-2 py-1 rounded text-xs font-medium 
+                ${
+                  darkMode
+                    ? 'bg-gray-700 text-gray-300'
+                    : 'bg-gray-100 text-gray-700'
+                }`}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+              >
+                {tech}
+              </motion.span>
+            ))}
+          </div>
+
+          {/* Links */}
+          <div className="flex space-x-4">
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center text-sm font-medium ${
+                darkMode
+                  ? 'text-gray-300 hover:text-white'
+                  : 'text-gray-700 hover:text-gray-900'
+              } transition-colors duration-200`}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Github size={16} className="mr-2" />
+              Code
+            </motion.a>
+            <motion.a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center text-sm font-medium ${
+                darkMode
+                  ? 'text-blue-400 hover:text-blue-300'
+                  : 'text-blue-600 hover:text-blue-700'
+              } transition-colors duration-200`}
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              <ExternalLink size={16} className="mr-2" />
+              Live Demo
+            </motion.a>
+          </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </InteractiveCard>
   );
 };
 
