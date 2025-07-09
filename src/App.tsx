@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import ThreeBackground from './components/ThreeBackground';
+import LazyThreeBackground from './components/LazyThreeBackground';
 import FloatingElements from './components/FloatingElements';
 
 function App() {
@@ -39,7 +40,6 @@ function App() {
   };
 
   return (
-    <div
     <AnimatePresence>
       <motion.div
         className={`min-h-screen transition-colors duration-500 ${
@@ -49,9 +49,9 @@ function App() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <ThreeBackground darkMode={darkMode} />
+        <LazyThreeBackground darkMode={darkMode} />
         <FloatingElements darkMode={darkMode} />
-        
+
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <main className="relative z-10">
           <Hero darkMode={darkMode} />
@@ -62,7 +62,6 @@ function App() {
         <Footer darkMode={darkMode} />
       </motion.div>
     </AnimatePresence>
-  )
   );
 }
 
