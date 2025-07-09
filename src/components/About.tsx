@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code, Palette, Zap, Users, Award, Coffee } from 'lucide-react';
+import ThreeSkills from './ThreeSkills';
 
 interface AboutProps {
   darkMode: boolean;
