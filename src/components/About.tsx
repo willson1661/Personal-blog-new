@@ -165,25 +165,29 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                 year: 'Nov 2022 – Jan 2024',
                 title: 'Front-end Developer',
                 company: 'Tech Mahindra Co.',
-                description: 'Developed responsive web applications using ReactJS and modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality user interfaces. Implemented component-based architecture and optimized application performance for better user experience.'
+                description:
+                  'Developed responsive web applications using ReactJS and modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality user interfaces. Implemented component-based architecture and optimized application performance for better user experience.',
               },
               {
                 year: 'Nov 2021 – Oct 2022',
                 title: 'Web-Designer',
                 company: 'Tech Mahindra Co.',
-                description: 'Created visually appealing and user-friendly web designs using Figma and Adobe Creative Suite. Worked closely with development teams to ensure design feasibility and consistency. Developed wireframes, prototypes, and design systems for multiple client projects.'
+                description:
+                  'Creating web pages that seamlessly adapt to iPad screen dimensions, enhancing user experience. Developing interactive email templates to engage and captivate recipients. Collaborated with designers to craft clean interfaces and intuitive interactions, resulting in enhanced userexperiences. Utilized HTML5, CSS3, and jQuery & JavaScript to seamlessly integrate responsive UI designs into iPad dimensions.',
               },
               {
                 year: 'Nov 2020 – Oct 2021',
                 title: 'Freelance Web Designer',
                 company: 'Self-employed',
-                description: 'Provided end-to-end web design services for small businesses and startups. Managed client relationships, project timelines, and deliverables. Created custom websites using HTML, CSS, and JavaScript while ensuring responsive design principles.'
+                description:
+                  'Provided end-to-end web design services for small businesses and startups. Managed client relationships, project timelines, and deliverables. Created custom websites using HTML, CSS, and JavaScript while ensuring responsive design principles.',
               },
               {
                 year: 'Nov 2018 – Oct 2019',
                 title: 'BPO Executive',
                 company: 'Private BPO Firm',
-                description: 'Handled customer service operations and technical support for international clients. Maintained high customer satisfaction ratings through effective communication and problem-solving skills. Developed strong attention to detail and multitasking abilities.'
+                description:
+                  'Handled customer service operations and technical support for international clients. Maintained high customer satisfaction ratings through effective communication and problem-solving skills. Developed strong attention to detail and multitasking abilities.',
               },
             ].map((exp, index) => (
               <div
