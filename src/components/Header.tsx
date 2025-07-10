@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Sun, Moon, Linkedin, Mail } from 'lucide-react';
 
 interface HeaderProps {
   darkMode: boolean;
@@ -48,23 +48,17 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
         <div className="flex justify-between items-center py-1">
           {/* Logo */}
           <div className="flex-shrink-0">
-          <img
-  key={darkMode ? 'dark' : 'light'} // Force React to re-render on theme switch
-  src={
-    darkMode
-      ? 'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/Logo.png?alt=media&token=1d42ff05-4b63-4f53-bb46-1eab4706969a'
-      : 'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/black%20logo.png?alt=media&token=81160166-2bbd-49ee-b98b-fd77d96619da'
-  }
-  alt="Logo"
-  width="120"
-  className="transition-opacity duration-200 opacity-100"
-/>
-
-     
- 
-
-
-            
+            <img
+              key={darkMode ? 'dark' : 'light'} // Force React to re-render on theme switch
+              src={
+                darkMode
+                  ? 'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/Logo.png?alt=media&token=1d42ff05-4b63-4f53-bb46-1eab4706969a'
+                  : 'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/black%20logo.png?alt=media&token=81160166-2bbd-49ee-b98b-fd77d96619da'
+              }
+              alt="Logo"
+              width="120"
+              className="transition-opacity duration-200 opacity-100"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -170,19 +164,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
               ))}
               <div className="flex space-x-4 px-3 py-2">
                 <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${
-                    darkMode
-                      ? 'text-gray-300 hover:text-white'
-                      : 'text-gray-700 hover:text-blue-600'
-                  } transition-colors`}
-                >
-                  <Github size={20} />
-                </a>
-                <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3B7ynMK6Q6TZW%2FUEvURNNMpA%3D%3D"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${
@@ -194,7 +176,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
                   <Linkedin size={20} />
                 </a>
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:officialwillson05@gmail.com"
                   className={`${
                     darkMode
                       ? 'text-gray-300 hover:text-white'
