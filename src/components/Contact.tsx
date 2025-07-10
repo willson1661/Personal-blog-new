@@ -75,23 +75,12 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
 
   const socialLinks = [
     {
-      icon: Github,
-      name: 'GitHub',
-      url: 'https://github.com',
-      color: 'hover:text-gray-900',
-    },
-    {
       icon: Linkedin,
       name: 'LinkedIn',
       url: 'https://linkedin.com',
       color: 'hover:text-blue-600',
     },
-    {
-      icon: Twitter,
-      name: 'Twitter',
-      url: 'https://twitter.com',
-      color: 'hover:text-blue-400',
-    },
+
     {
       icon: MessageCircle,
       name: 'Discord',
@@ -140,20 +129,6 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
               Let's Connect
             </motion.h3>
 
-            <motion.p
-              className={`text-lg mb-8 ${
-                darkMode ? 'text-gray-300' : 'text-gray-700'
-              } leading-relaxed`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              I'm always open to discussing new opportunities, interesting
-              projects, or just having a chat about technology and development.
-              Feel free to reach out through any of the channels below.
-            </motion.p>
-
             {/* Contact Info Cards */}
             <div className="space-y-6 mb-8">
               {contactInfo.map((info, index) => (
@@ -167,7 +142,9 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
                   <InteractiveCard hoverScale={1.05}>
                     <a
                       href={info.link}
-                      target={info.link.startsWith('http') ? '_blank' : undefined}
+                      target={
+                        info.link.startsWith('http') ? '_blank' : undefined
+                      }
                       rel={
                         info.link.startsWith('http')
                           ? 'noopener noreferrer'
