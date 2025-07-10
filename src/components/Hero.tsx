@@ -138,7 +138,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             <InteractiveCard hoverScale={1.1} rotateOnHover={true}>
               <div className="relative">
                 <motion.div
-                  className={`w-80 h-80 rounded-full ${
+                  className={`w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full ${
                     darkMode
                       ? 'bg-gradient-to-br from-blue-600 to-purple-600'
                       : 'bg-gradient-to-br from-blue-500 to-purple-500'
