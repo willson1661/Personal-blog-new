@@ -1,110 +1,245 @@
 import React from 'react';
-import { User, Award, Target, Heart } from 'lucide-react';
+import { Code, Palette, Zap, Users, Award, Coffee } from 'lucide-react';
 
-const About = () => {
+interface AboutProps {
+  darkMode: boolean;
+}
+
+const About: React.FC<AboutProps> = ({ darkMode }) => {
+  const skills = [
+    {
+      name: 'Frontend',
+      icon: Code,
+      items: ['React', 'JavaScript', 'Css', 'Html'],
+    },
+    {
+      name: ' AI & Prompt Engineering',
+      icon: Zap,
+      items: [
+        'ChatGPT (prompt design & automation)',
+        'Bolt AI (AI writing & task assistance)',
+        'Lovable AI (design & content ideation)',
+        'Google Gemini (multi-modal querying & research)',
+      ],
+    },
+    {
+      name: 'Design',
+      icon: Palette,
+      items: ['Figma', 'Adobe Photoshop', 'Adobe Dreamweaver'],
+    },
+    { name: 'Tools', icon: Coffee, items: ['Github', 'Vercel'] },
+  ];
+
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="max-w-6xl mx-auto px-6">
+    <section
+      id="about"
+      className={`py-20 ${darkMode ? 'bg-gray-800' : 'bg-gray-50'}`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Passionate developer with a love for creating beautiful, functional experiences
+          <h2
+            className={`text-4xl font-bold mb-4 ${
+              darkMode ? 'text-white' : 'text-gray-900'
+            }`}
+          >
+            About Me
+          </h2>
+          <p
+            className={`text-xl ${
+              darkMode ? 'text-gray-300' : 'text-gray-600'
+            } max-w-3xl mx-auto`}
+          >
+            Passionate developer with a keen eye for design and a love for
+            creating exceptional digital experiences that make a difference.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="prose prose-lg text-gray-700">
-              <p>
-                I'm a dedicated developer who believes in the power of clean code and 
-                thoughtful design. With years of experience in modern web technologies, 
-                I specialize in creating applications that not only look great but 
-                perform exceptionally.
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Content */}
+          <div>
+            <div className="mb-8">
+              <h3
+                className={`text-2xl font-bold mb-4 ${
+                  darkMode ? 'text-white' : 'text-gray-900'
+                }`}
+              >
+                My Journey
+              </h3>
+              <p
+                className={`text-lg mb-6 ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                } leading-relaxed`}
+              >
+                I've evolved into a front-end developer who bridges the gap
+                between technical excellence and user experience. My approach
+                combines analytical thinking with creative problem-solving.
               </p>
-              <p>
-                My journey in tech has been driven by curiosity and a constant desire 
-                to learn. I enjoy tackling complex problems and turning ideas into 
-                reality through code.
+              <p
+                className={`text-lg ${
+                  darkMode ? 'text-gray-300' : 'text-gray-700'
+                } leading-relaxed`}
+              >
+                When I'm not coding, you'll find me exploring new technologies,
+                contributing to open-source projects, or sharing knowledge
+                through technical writing and mentoring.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-blue-100 rounded-lg">
-                    <Target className="w-5 h-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Focused</h4>
-                    <p className="text-sm text-gray-600">Goal-oriented approach</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
-                <div className="flex items-center space-x-3">
-                  <div className="p-2 bg-green-100 rounded-lg">
-                    <Award className="w-5 h-5 text-green-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">Excellence</h4>
-                    <p className="text-sm text-gray-600">Quality-driven work</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Achievements */}
           </div>
 
-          <div className="relative">
-            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full">
-                  <User className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Developer Profile</h3>
-                  <p className="text-gray-600">Full-stack expertise</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">Frontend Development</span>
-                  <div className="flex space-x-1">
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="w-2 h-2 bg-blue-500 rounded-full"></div>
+          {/* Skills */}
+          <div>
+            <h3
+              className={`text-2xl font-bold mb-8 ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}
+            >
+              Skills & Expertise
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {skills.map((skill, index) => (
+                <div
+                  key={index}
+                  className={`p-6 rounded-xl ${
+                    darkMode ? 'bg-gray-700' : 'bg-white'
+                  } 
+                  shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105`}
+                >
+                  <div className="flex items-center mb-4">
+                    <skill.icon
+                      className={`w-6 h-6 mr-3 ${
+                        darkMode ? 'text-blue-400' : 'text-blue-600'
+                      }`}
+                    />
+                    <h4
+                      className={`font-semibold ${
+                        darkMode ? 'text-white' : 'text-gray-900'
+                      }`}
+                    >
+                      {skill.name}
+                    </h4>
+                  </div>
+                  <div className="space-y-2">
+                    {skill.items.map((item, itemIndex) => (
+                      <div key={itemIndex} className="flex items-center">
+                        <div
+                          className={`w-2 h-2 rounded-full mr-3 ${
+                            darkMode ? 'bg-blue-400' : 'bg-blue-600'
+                          }`}
+                        ></div>
+                        <span
+                          className={`text-sm ${
+                            darkMode ? 'text-gray-300' : 'text-gray-700'
+                          }`}
+                        >
+                          {item}
+                        </span>
+                      </div>
                     ))}
                   </div>
                 </div>
-                
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">Backend Development</span>
-                  <div className="flex space-x-1">
-                    {[...Array(4)].map((_, i) => (
-                      <div key={i} className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    ))}
-                    <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                  </div>
-                </div>
-                
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">UI/UX Design</span>
-                  <div className="flex space-x-1">
-                    {[...Array(4)].map((_, i) => (
-                      <div key={i} className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    ))}
-                    <div className="w-2 h-2 bg-gray-300 rounded-full"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-6 border-t border-gray-100">
-                <div className="flex items-center space-x-2 text-gray-600">
-                  <Heart className="w-4 h-4 text-red-500" />
-                  <span className="text-sm">Passionate about creating amazing user experiences</span>
-                </div>
-              </div>
+              ))}
             </div>
+          </div>
+        </div>
+
+        {/* Experience Timeline */}
+        <div className="mt-20">
+          <h3
+            className={`text-2xl font-bold mb-12 text-center ${
+              darkMode ? 'text-white' : 'text-gray-900'
+            }`}
+          >
+            WORK EXPERIENCE
+          </h3>
+          <div className="relative">
+            <div
+              className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full 
+              ${darkMode ? 'bg-gray-600' : 'bg-gray-300'}`}
+            ></div>
+
+            {[
+              {
+                year: 'Nov 2022 – Jan 2024',
+                title: 'Front-end Developer',
+                company: 'Tech Mahindra Co.',
+                description: 'Developed responsive web applications using ReactJS and modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality user interfaces. Implemented component-based architecture and optimized application performance for better user experience.'
+              },
+              {
+                year: 'Nov 2021 – Oct 2022',
+                title: 'Web-Designer',
+                company: 'Tech Mahindra Co.',
+                description: 'Created visually appealing and user-friendly web designs using Figma and Adobe Creative Suite. Worked closely with development teams to ensure design feasibility and consistency. Developed wireframes, prototypes, and design systems for multiple client projects.'
+              },
+              {
+                year: 'Nov 2020 – Oct 2021',
+                title: 'Freelance Web Designer',
+                company: 'Self-employed',
+                description: 'Provided end-to-end web design services for small businesses and startups. Managed client relationships, project timelines, and deliverables. Created custom websites using HTML, CSS, and JavaScript while ensuring responsive design principles.'
+              },
+              {
+                year: 'Nov 2018 – Oct 2019',
+                title: 'BPO Executive',
+                company: 'Private BPO Firm',
+                description: 'Handled customer service operations and technical support for international clients. Maintained high customer satisfaction ratings through effective communication and problem-solving skills. Developed strong attention to detail and multitasking abilities.'
+              },
+            ].map((exp, index) => (
+              <div
+                key={index}
+                className={`relative flex items-center mb-8 
+                ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
+              >
+                <div
+                  className={`w-1/2 ${
+                    index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'
+                  }`}
+                >
+                  <div
+                    className={`p-6 rounded-lg ${
+                      darkMode ? 'bg-gray-700' : 'bg-white'
+                    } 
+                    shadow-md hover:shadow-lg transition-shadow duration-300`}
+                  >
+                    <div
+                      className={`text-sm font-medium mb-1 ${
+                        darkMode ? 'text-blue-400' : 'text-blue-600'
+                      }`}
+                    >
+                      {exp.year}
+                    </div>
+                    <h4
+                      className={`font-semibold mb-1 ${
+                        darkMode ? 'text-white' : 'text-gray-900'
+                      }`}
+                    >
+                      {exp.title}
+                    </h4>
+                    <p
+                      className={`text-sm mb-3 ${
+                        darkMode ? 'text-gray-300' : 'text-gray-600'
+                      }`}
+                    >
+                      {exp.company}
+                    </p>
+                    <p
+                      className={`text-sm ${
+                        darkMode ? 'text-gray-400' : 'text-gray-700'
+                      } leading-relaxed`}
+                    >
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className={`absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full 
+                  ${darkMode ? 'bg-blue-500' : 'bg-blue-600'} border-4 ${
+                    darkMode ? 'border-gray-800' : 'border-gray-50'
+                  }`}
+                ></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
