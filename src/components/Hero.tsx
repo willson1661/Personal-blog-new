@@ -101,7 +101,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative z-[12]"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center relative z-[12]"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
@@ -114,7 +114,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                       ? 'bg-gray-800 text-white hover:bg-gray-700'
                       : 'bg-white text-gray-900 hover:bg-gray-50'
                   } 
-  px-8 py-4 rounded-lg font-semibold border-2 ${
+  px-8 py-4 rounded-lg font-semibold border-2 w-full sm:w-auto ${
     darkMode ? 'border-gray-700' : 'border-gray-200'
   } 
   hover:shadow-lg transition-all duration-300 flex items-center justify-center`}
