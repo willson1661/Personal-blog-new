@@ -1,14 +1,17 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useCallback } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Points, PointMaterial, Sphere } from '@react-three/drei';
+import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
+import { useDeviceCapabilities } from '../hooks/useDeviceCapabilities';
+import { THREEJS_CONFIG, Z_INDEX } from '../constants';
 
 interface ParticleSystemProps {
   count: number;
   darkMode: boolean;
+  prefersReducedMotion: boolean;
 }
 
-const ParticleSystem: React.FC<ParticleSystemProps> = ({ count, darkMode }) => {
+const ParticleSystem: React.FC<ParticleSystemProps> = ({ count, darkMode, prefersReducedMotion }: ParticleSystemProps) => {
   const mesh = useRef<THREE.Points>(null);
   const { mouse } = useThree();
 
@@ -27,14 +30,26 @@ const ParticleSystem: React.FC<ParticleSystemProps> = ({ count, darkMode }) => {
     return temp;
   }, [count]);
 
+  const rotationSpeed = useMemo(() => 
+    prefersReducedMotion ? 0.02 : 0.1, 
+    [prefersReducedMotion]
+  );
+
+  const mouseInteraction = useMemo(() => 
+    prefersReducedMotion ? 0.02 : 0.1, 
+    [prefersReducedMotion]
+  );
+
   useFrame((state) => {
     if (mesh.current) {
-      mesh.current.rotation.x = state.clock.elapsedTime * 0.1;
-      mesh.current.rotation.y = state.clock.elapsedTime * 0.15;
+      mesh.current.rotation.x = state.clock.elapsedTime * rotationSpeed;
+      mesh.current.rotation.y = state.clock.elapsedTime * (rotationSpeed * 1.5);
 
-      // Mouse interaction
-      mesh.current.rotation.x += mouse.y * 0.1;
-      mesh.current.rotation.y += mouse.x * 0.1;
+      // Mouse interaction (reduced if motion is preferred to be reduced)
+      if (!prefersReducedMotion) {
+        mesh.current.rotation.x += mouse.y * mouseInteraction;
+        mesh.current.rotation.y += mouse.x * mouseInteraction;
+      }
     }
   });
 
@@ -56,25 +71,37 @@ interface FloatingGeometryProps {
   position: [number, number, number];
   darkMode: boolean;
   geometry: 'box' | 'sphere' | 'torus';
+  prefersReducedMotion: boolean;
 }
 
 const FloatingGeometry: React.FC<FloatingGeometryProps> = ({
   position,
   darkMode,
   geometry,
-}) => {
+  prefersReducedMotion,
+}: FloatingGeometryProps) => {
   const mesh = useRef<THREE.Mesh>(null);
+
+  const animationSpeed = useMemo(() => 
+    prefersReducedMotion ? 0.1 : 0.5, 
+    [prefersReducedMotion]
+  );
+
+  const floatSpeed = useMemo(() => 
+    prefersReducedMotion ? 0.2 : 1, 
+    [prefersReducedMotion]
+  );
 
   useFrame((state) => {
     if (mesh.current) {
-      mesh.current.rotation.x = state.clock.elapsedTime * 0.5;
-      mesh.current.rotation.y = state.clock.elapsedTime * 0.3;
+      mesh.current.rotation.x = state.clock.elapsedTime * animationSpeed;
+      mesh.current.rotation.y = state.clock.elapsedTime * (animationSpeed * 0.6);
       mesh.current.position.y =
-        position[1] + Math.sin(state.clock.elapsedTime) * 0.5;
+        position[1] + Math.sin(state.clock.elapsedTime * floatSpeed) * 0.5;
     }
   });
 
-  const renderGeometry = () => {
+  const renderGeometry = useCallback(() => {
     switch (geometry) {
       case 'box':
         return <boxGeometry args={[1, 1, 1]} />;
@@ -85,7 +112,7 @@ const FloatingGeometry: React.FC<FloatingGeometryProps> = ({
       default:
         return <boxGeometry args={[1, 1, 1]} />;
     }
-  };
+  }, [geometry]);
 
   return (
     <mesh ref={mesh} position={position}>
@@ -105,45 +132,64 @@ interface ThreeBackgroundProps {
 }
 
 const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ darkMode }) => {
+  const { particleCount, prefersReducedMotion, devicePixelRatio } = useDeviceCapabilities();
+
+  const canvasConfig = useMemo(() => ({
+    camera: { 
+      position: THREEJS_CONFIG.CAMERA.POSITION, 
+      fov: THREEJS_CONFIG.CAMERA.FOV 
+    },
+    style: { 
+      background: 'transparent', 
+      pointerEvents: 'none' as const 
+    },
+    gl: {
+      antialias: devicePixelRatio <= 1,
+      alpha: true,
+      powerPreference: 'high-performance' as const,
+      failIfMajorPerformanceCaveat: true
+    },
+    dpr: devicePixelRatio
+  }), [devicePixelRatio]);
+
+  const geometries = useMemo(() => [
+    { position: [-5, 2, -5] as [number, number, number], geometry: 'box' as const },
+    { position: [5, -2, -3] as [number, number, number], geometry: 'sphere' as const },
+    { position: [-3, -3, -7] as [number, number, number], geometry: 'torus' as const },
+    { position: [4, 3, -6] as [number, number, number], geometry: 'box' as const },
+    { position: [-6, -1, -4] as [number, number, number], geometry: 'sphere' as const },
+  ], []);
+
   return (
-    <div className="fixed inset-0 z-[12]" style={{ pointerEvents: 'none' }}>
-      <Canvas
-        camera={{ position: [0, 0, 10], fov: 60 }}
-        style={{ background: 'transparent', pointerEvents: 'none' }}
-      >
+    <div 
+      className="fixed inset-0" 
+      style={{ 
+        pointerEvents: 'none',
+        zIndex: Z_INDEX.THREE_BACKGROUND
+      }}
+    >
+      <Canvas {...canvasConfig}>
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
 
-        <ParticleSystem count={1000} darkMode={darkMode} />
+        <ParticleSystem 
+          count={particleCount} 
+          darkMode={darkMode} 
+          prefersReducedMotion={prefersReducedMotion}
+        />
 
-        <FloatingGeometry
-          position={[-5, 2, -5]}
-          darkMode={darkMode}
-          geometry="box"
-        />
-        <FloatingGeometry
-          position={[5, -2, -3]}
-          darkMode={darkMode}
-          geometry="sphere"
-        />
-        <FloatingGeometry
-          position={[-3, -3, -7]}
-          darkMode={darkMode}
-          geometry="torus"
-        />
-        <FloatingGeometry
-          position={[4, 3, -6]}
-          darkMode={darkMode}
-          geometry="box"
-        />
-        <FloatingGeometry
-          position={[-6, -1, -4]}
-          darkMode={darkMode}
-          geometry="sphere"
-        />
+        {geometries.map((geo, index) => (
+          <FloatingGeometry
+            key={index}
+            position={geo.position}
+            darkMode={darkMode}
+            geometry={geo.geometry}
+            prefersReducedMotion={prefersReducedMotion}
+          />
+        ))}
       </Canvas>
     </div>
   );
 };
 
-export default ThreeBackground;
+export default React.memo(ThreeBackground);

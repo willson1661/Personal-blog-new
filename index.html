@@ -1,42 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Alex Johnson - Full-Stack Developer & UI/UX Designer. Creating beautiful, functional, and user-centered digital experiences." />
-    <meta name="keywords" content="web developer, full-stack developer, UI/UX designer, React, TypeScript, portfolio" />
-    <meta name="author" content="Alex Johnson" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Performance and Resource Hints -->
+  <link rel="dns-prefetch" href="//firebasestorage.googleapis.com">
+  <link rel="preconnect" href="https://firebasestorage.googleapis.com" crossorigin>
+  <link rel="preload" href="/src/main.tsx" as="script">
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Willson Raj Manda - Front-end Developer & Web Designer with 2.3+ years of experience in modern web technologies. Building clean, functional, and user-centered digital experiences.">
+  <meta name="keywords" content="front-end developer, web designer, react developer, javascript, typescript, tailwind css, web development">
+  <meta name="author" content="Willson Raj Manda">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Willson Raj Manda - Front-end Developer & Web Designer">
+  <meta property="og:description" content="Building clean, functional, and user-centered digital experiences with modern web technologies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://willsonraj.dev">
+  <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/WhatsApp%20Image%202025-04-21%20at%2011.09.01_c18a96a3%20(1).png?alt=media&token=4df8c10b-85d6-4aa2-af15-bcb9895067da">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Willson Raj Manda - Front-end Developer & Web Designer">
+  <meta name="twitter:description" content="Building clean, functional, and user-centered digital experiences with modern web technologies.">
+  <meta name="twitter:image" content="https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/WhatsApp%20Image%202025-04-21%20at%2011.09.01_c18a96a3%20(1).png?alt=media&token=4df8c10b-85d6-4aa2-af15-bcb9895067da">
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3b82f6">
+  
+  <!-- Performance Optimization -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <title>Willson Raj Manda - Front-end Developer & Web Designer</title>
+  
+  <!-- Critical CSS for performance -->
+  <style>
+    /* Critical CSS for initial render */
+    html {
+      scroll-behavior: smooth;
+    }
     
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://Willsonrajmanda.dev/" />
-    <meta property="og:title" content="Alex Johnson - Full-Stack Developer & UI/UX Designer" />
-    <meta property="og:description" content="Creating beautiful, functional, and user-centered digital experiences with modern web technologies." />
-    <meta property="og:image" content="/og-image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://Willsonrajmanda.dev/" />
-    <meta property="twitter:title" content="Alex Johnson - Full-Stack Developer & UI/UX Designer" />
-    <meta property="twitter:description" content="Creating beautiful, functional, and user-centered digital experiences with modern web technologies." />
-    <meta property="twitter:image" content="/og-image.jpg" />
-
-    <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://images.pexels.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
     
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    /* Loading spinner for initial load */
+    .loading-spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f4f6;
+      border-top: 4px solid #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 9999;
+    }
     
-    <title>Willson raj manda - Front-end developer & Web Designer</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    /* Hide scrollbar for cleaner look */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #94a3b8;
+      border-radius: 3px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <!-- Loading spinner for initial load -->
+    <div class="loading-spinner" id="initial-loader"></div>
+  </div>
+  
+  <script type="module" src="/src/main.tsx"></script>
+  
+  <!-- Performance monitoring -->
+  <script>
+    // Remove initial loader when app loads
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('initial-loader');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.remove(), 300);
+      }
+    });
+    
+    // Performance monitoring
+    if ('performance' in window && 'mark' in performance && 'measure' in performance) {
+      performance.mark('app-start');
+      
+      window.addEventListener('load', () => {
+        performance.mark('app-loaded');
+        performance.measure('app-load-time', 'app-start', 'app-loaded');
+        
+        // Log performance metrics in development
+        if (process.env.NODE_ENV === 'development') {
+          const measure = performance.getEntriesByName('app-load-time')[0];
+          console.log(`App load time: ${measure.duration}ms`);
+        }
+      });
+    }
+  </script>
+</body>
 </html>
