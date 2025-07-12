@@ -282,12 +282,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}
           />
-          <motion.div
-            className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 border border-white/30 shadow-lg"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          ></motion.div>
+  <motion.div
+  className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+  initial={{ opacity: 0 }}
+  whileHover={{ opacity: 1 }}
+  transition={{ duration: 0.3 }}
+></motion.div>
 
           {/* Overlay Links */}
           <motion.div
