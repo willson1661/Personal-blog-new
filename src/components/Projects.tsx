@@ -15,81 +15,81 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
+      title: 'Sales-admin panel',
       description:
-        'Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product management, and real-time inventory tracking.',
+        ' comprehensive sales administration panel built with React, providing dashboard functionality for managing sales data, analytics, and administrative tasks.',
       image:
         'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'Full-Stack',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      github: 'https://github.com',
+      category: 'Frontend',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+      
       demo: 'https://demo.com',
       featured: true,
     },
     {
       id: 2,
-      title: 'Task Management App',
+      title: 'Job AI Insight Tracker',
       description:
-        'Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+        'An AI-powered job application management system that helps users track their job applications, analyze application insights, and manage their job search process efficiently.',
       image:
         'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
       category: 'Frontend',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Socket.io'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+    
+      demo: 'https://chic-custard-7ccaa6.netlify.app/',
       featured: true,
     },
     {
       id: 3,
-      title: 'Weather Dashboard',
+      title: 'Zap Weather App',
       description:
-        'Beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.',
+        'A modern weather application built with Vite, React, and TypeScript that provides real-time weather information and forecasts with a clean, responsive interface.',
       image:
         'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800',
       category: 'Frontend',
-      technologies: ['Vue.js', 'Chart.js', 'OpenWeather API'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
-      featured: false,
+   technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+
+      demo: ' https://melodic-puffpuff-d15e43.netlify.app/',
+      featured: true,
     },
     {
       id: 4,
-      title: 'Blog CMS',
+      title: 'Crave Food Kart',
       description:
-        'Content management system for bloggers with markdown support, SEO optimization, and analytics dashboard.',
+        'A food discovery and ordering platform that allows users to browse different food categories, explore restaurants, and place orders for their favorite meals.',
       image:
         'https://images.pexels.com/photos/265667/pexels-photo-265667.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'Full-Stack',
-      technologies: ['Next.js', 'Prisma', 'PostgreSQL', 'Vercel'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
-      featured: false,
+      category: 'Frontend',
+    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+     
+      demo: 'https://imaginative-semolina-527153.netlify.app/',
+      featured: true,
     },
     {
       id: 5,
-      title: 'Mobile Banking App',
+      title: 'EatoHub Blog',
       description:
         'Secure mobile banking application with biometric authentication, transaction history, and budget tracking.',
       image:
         'https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'Mobile',
-      technologies: ['React Native', 'Firebase', 'Redux'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
+    category: 'Frontend',
+        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+
+      demo: 'https://68724db615a725e0ced0d889--vocal-bubblegum-282481.netlify.app/',
       featured: true,
     },
     {
       id: 6,
       title: 'AI Chat Assistant',
       description:
-        'Intelligent chat assistant powered by machine learning with natural language processing and context awareness.',
+        'An AI-powered customer support chatbot system that provides automated customer service solutions with intelligent conversation handling and support ticket management.',
       image:
         'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
-      category: 'AI/ML',
-      technologies: ['Python', 'TensorFlow', 'FastAPI', 'React'],
-      github: 'https://github.com',
-      demo: 'https://demo.com',
-      featured: false,
+          category: 'Frontend',
+        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+
+      demo: 'https://6872515af0a864e08b68c470--roaring-cranachan-2271ff.netlify.app/m',
+      featured: true,
     },
   ];
 
@@ -187,7 +187,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              All Projects
+      
             </motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularProjects.map((project, index) => (
