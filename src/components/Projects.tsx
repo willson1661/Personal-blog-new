@@ -22,7 +22,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fsale%20admin%20panel.png?alt=media&token=1b61850f-0685-45cd-b95a-b6be8c512ec3',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      
+
       demo: 'https://delicate-flan-051188.netlify.app/',
       featured: true,
     },
@@ -35,7 +35,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20job%20tracjer.png?alt=media&token=4932ad80-64ff-4cd4-8899-ab96b4d360d2',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-    
+
       demo: 'https://chic-custard-7ccaa6.netlify.app/',
       featured: true,
     },
@@ -47,7 +47,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fweather.png?alt=media&token=d3bb02a8-a7e3-4347-a0c5-8477eabf2ae1',
       category: 'Frontend',
-   technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
 
       demo: ' https://melodic-puffpuff-d15e43.netlify.app/',
       featured: true,
@@ -60,8 +60,8 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2FCrave%20Food%20Kart.png?alt=media&token=700e0239-420a-40bd-9c93-b38f0c956bda',
       category: 'Frontend',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-     
+      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+
       demo: 'https://imaginative-semolina-527153.netlify.app/',
       featured: true,
     },
@@ -72,8 +72,8 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'Secure mobile banking application with biometric authentication, transaction history, and budget tracking.',
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Featohub%20blog.png?alt=media&token=dddad4cc-125f-43e4-a84e-3b25f6c5dada',
-    category: 'Frontend',
-        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+      category: 'Frontend',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
 
       demo: 'https://68724db615a725e0ced0d889--vocal-bubblegum-282481.netlify.app/',
       featured: true,
@@ -85,8 +85,8 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'An AI-powered customer support chatbot system that provides automated customer service solutions with intelligent conversation handling and support ticket management.',
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20chat.png?alt=media&token=6b1d18bc-d018-4466-b833-1b510a600d67',
-          category: 'Frontend',
-        technologies: ['React', 'TypeScript', 'Tailwind CSS'],
+      category: 'Frontend',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
 
       demo: 'https://6872515af0a864e08b68c470--roaring-cranachan-2271ff.netlify.app/',
       featured: true,
@@ -152,9 +152,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-            >
-       
-            </motion.h3>
+            ></motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredProjects.map((project, index) => (
                 <motion.div
@@ -164,11 +162,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <ProjectCard
-                    project={project}
-                    darkMode={darkMode}
-                    featured
-                  />
+                  <ProjectCard project={project} darkMode={darkMode} featured />
                 </motion.div>
               ))}
             </div>
@@ -186,9 +180,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-            >
-      
-            </motion.h3>
+            ></motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularProjects.map((project, index) => (
                 <motion.div
@@ -198,10 +190,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <ProjectCard
-                    project={project}
-                    darkMode={darkMode}
-                  />
+                  <ProjectCard project={project} darkMode={darkMode} />
                 </motion.div>
               ))}
             </div>
@@ -256,10 +245,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       hoverScale={1.05}
       rotateOnHover={true}
     >
-      <motion.div
-        whileHover={{ y: -5 }}
-        transition={{ duration: 0.3 }}
-      >
+      <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
         {/* Featured Badge */}
         {featured && (
           <motion.div
@@ -282,29 +268,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}
           />
-  <motion.div
-  className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-  initial={{ opacity: 0 }}
-  whileHover={{ opacity: 1 }}
-  transition={{ duration: 0.3 }}
-></motion.div>
 
-          {/* Overlay Links */}
           <motion.div
-            className="absolute inset-0 flex items-center justify-center space-x-4"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileHover={{ opacity: 1, scale: 1 }}
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-        
             <motion.a
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 
-                 transition-colors duration-200"
-              whileHover={{ scale: 1.1, rotate: -360 }}
-              whileTap={{ scale: 0.9 }}
+              className="p-3 bg-white rounded-full text-black shadow-lg border border-gray-300 hover:bg-gray-100 transition-all duration-300"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
             >
               <ExternalLink size={20} />
             </motion.a>
@@ -368,7 +345,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {/* Links */}
           <div className="flex space-x-4">
-          
             <motion.a
               href={project.demo}
               target="_blank"
