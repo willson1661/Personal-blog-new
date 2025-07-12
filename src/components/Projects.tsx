@@ -283,7 +283,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             transition={{ duration: 0.5 }}
           />
           <motion.div
-            className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+            className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 border border-white/30 shadow-lg"
             initial={{ opacity: 0 }}
             whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
