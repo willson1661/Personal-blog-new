@@ -50,7 +50,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
               darkMode ? 'text-gray-300' : 'text-gray-600'
             } max-w-3xl mx-auto`}
           >
-            Passionate willson developer with a keen eye for design and a love for
+            Passionate developer with a keen eye for design and a love for
             creating exceptional digital experiences that make a difference.
           </p>
         </div>
