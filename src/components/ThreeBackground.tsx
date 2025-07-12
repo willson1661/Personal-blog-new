@@ -1,6 +1,6 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, memo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Points, PointMaterial, Sphere } from '@react-three/drei';
+import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface ParticleSystemProps {
@@ -8,7 +8,7 @@ interface ParticleSystemProps {
   darkMode: boolean;
 }
 
-const ParticleSystem: React.FC<ParticleSystemProps> = ({ count, darkMode }) => {
+const ParticleSystem = memo<ParticleSystemProps>(({ count, darkMode }) => {
   const mesh = useRef<THREE.Points>(null);
   const { mouse } = useThree();
 
@@ -29,28 +29,30 @@ const ParticleSystem: React.FC<ParticleSystemProps> = ({ count, darkMode }) => {
 
   useFrame((state) => {
     if (mesh.current) {
-      mesh.current.rotation.x = state.clock.elapsedTime * 0.1;
-      mesh.current.rotation.y = state.clock.elapsedTime * 0.15;
+      // Reduce animation frequency for better performance
+      const time = state.clock.elapsedTime;
+      mesh.current.rotation.x = time * 0.05; // Reduced from 0.1
+      mesh.current.rotation.y = time * 0.075; // Reduced from 0.15
 
-      // Mouse interaction
-      mesh.current.rotation.x += mouse.y * 0.1;
-      mesh.current.rotation.y += mouse.x * 0.1;
+      // Reduce mouse interaction intensity
+      mesh.current.rotation.x += mouse.y * 0.05; // Reduced from 0.1
+      mesh.current.rotation.y += mouse.x * 0.05; // Reduced from 0.1
     }
   });
 
   return (
-    <Points ref={mesh} positions={particles} stride={3} frustumCulled={false}>
+    <Points ref={mesh} positions={particles} stride={3} frustumCulled={true}>
       <PointMaterial
         transparent
         color={darkMode ? '#60a5fa' : '#3b82f6'}
-        size={0.05}
+        size={0.04} // Reduced from 0.05
         sizeAttenuation={true}
         depthWrite={false}
-        opacity={0.6}
+        opacity={0.5} // Reduced from 0.6
       />
     </Points>
   );
-};
+});
 
 interface FloatingGeometryProps {
   position: [number, number, number];
@@ -58,7 +60,7 @@ interface FloatingGeometryProps {
   geometry: 'box' | 'sphere' | 'torus';
 }
 
-const FloatingGeometry: React.FC<FloatingGeometryProps> = ({
+const FloatingGeometry = memo<FloatingGeometryProps>(({
   position,
   darkMode,
   geometry,
@@ -67,83 +69,78 @@ const FloatingGeometry: React.FC<FloatingGeometryProps> = ({
 
   useFrame((state) => {
     if (mesh.current) {
-      mesh.current.rotation.x = state.clock.elapsedTime * 0.5;
-      mesh.current.rotation.y = state.clock.elapsedTime * 0.3;
-      mesh.current.position.y =
-        position[1] + Math.sin(state.clock.elapsedTime) * 0.5;
+      const time = state.clock.elapsedTime;
+      // Reduce animation complexity
+      mesh.current.rotation.x = time * 0.3; // Reduced from 0.5
+      mesh.current.rotation.y = time * 0.2; // Reduced from 0.3
+      mesh.current.position.y = position[1] + Math.sin(time) * 0.3; // Reduced from 0.5
     }
   });
 
-  const renderGeometry = () => {
+  const renderGeometry = useMemo(() => {
     switch (geometry) {
       case 'box':
-        return <boxGeometry args={[1, 1, 1]} />;
+        return <boxGeometry args={[0.8, 0.8, 0.8]} />; // Reduced size
       case 'sphere':
-        return <sphereGeometry args={[0.5, 32, 32]} />;
+        return <sphereGeometry args={[0.4, 16, 16]} />; // Reduced detail
       case 'torus':
-        return <torusGeometry args={[0.5, 0.2, 16, 100]} />;
+        return <torusGeometry args={[0.4, 0.15, 8, 50]} />; // Reduced detail
       default:
-        return <boxGeometry args={[1, 1, 1]} />;
+        return <boxGeometry args={[0.8, 0.8, 0.8]} />;
     }
-  };
+  }, [geometry]);
 
   return (
     <mesh ref={mesh} position={position}>
-      {renderGeometry()}
+      {renderGeometry}
       <meshStandardMaterial
         color={darkMode ? '#8b5cf6' : '#6366f1'}
         transparent
-        opacity={0.3}
+        opacity={0.25} // Reduced from 0.3
         wireframe
       />
     </mesh>
   );
-};
+});
 
 interface ThreeBackgroundProps {
   darkMode: boolean;
 }
 
-const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ darkMode }) => {
+const ThreeBackground = memo<ThreeBackgroundProps>(({ darkMode }) => {
   return (
-    <div className="fixed inset-0 z-[12]" style={{ pointerEvents: 'none' }}>
+    <div className="fixed inset-0 z-[1]" style={{ pointerEvents: 'none' }}>
       <Canvas
         camera={{ position: [0, 0, 10], fov: 60 }}
         style={{ background: 'transparent', pointerEvents: 'none' }}
+        dpr={[1, 1.5]} // Limit pixel ratio for better performance
+        performance={{ min: 0.8 }} // Reduce quality if performance drops
       >
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
+        <ambientLight intensity={0.4} />
+        <pointLight position={[10, 10, 10]} intensity={0.8} />
 
-        <ParticleSystem count={1000} darkMode={darkMode} />
+        {/* Reduced particle count from 1000 to 500 */}
+        <ParticleSystem count={500} darkMode={darkMode} />
 
+        {/* Reduced number of floating geometries */}
         <FloatingGeometry
-          position={[-5, 2, -5]}
+          position={[-4, 2, -4]}
           darkMode={darkMode}
           geometry="box"
         />
         <FloatingGeometry
-          position={[5, -2, -3]}
+          position={[4, -2, -3]}
           darkMode={darkMode}
           geometry="sphere"
         />
         <FloatingGeometry
-          position={[-3, -3, -7]}
+          position={[-3, -2, -5]}
           darkMode={darkMode}
           geometry="torus"
-        />
-        <FloatingGeometry
-          position={[4, 3, -6]}
-          darkMode={darkMode}
-          geometry="box"
-        />
-        <FloatingGeometry
-          position={[-6, -1, -4]}
-          darkMode={darkMode}
-          geometry="sphere"
         />
       </Canvas>
     </div>
   );
-};
+});
 
 export default ThreeBackground;

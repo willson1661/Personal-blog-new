@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Download, Play, Target } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import InteractiveCard from './InteractiveCard';
 
@@ -8,14 +8,15 @@ interface HeroProps {
   darkMode: boolean;
 }
 
-const Hero: React.FC<HeroProps> = ({ darkMode }) => {
-  const scrollToAbout = () => {
+const Hero = memo<HeroProps>(({ darkMode }) => {
+  const scrollToAbout = useCallback(() => {
     const element = document.querySelector('#about');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-  const handleDownload = () => {
+  }, []);
+
+  const handleDownload = useCallback(() => {
     const link = document.createElement('a');
     link.href =
       'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/Willson%20Raj%20Manda%20Resume.pdf?alt=media&token=52103178-1501-4598-a0ce-fe3d95a3b1b8';
@@ -24,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  };
+  }, []);
 
   return (
     <motion.section
@@ -101,7 +102,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
 
             {/* CTA Buttons */}
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center relative z-[12]"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start relative z-[12]"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
@@ -114,7 +115,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                       ? 'bg-gray-800 text-white hover:bg-gray-700'
                       : 'bg-white text-gray-900 hover:bg-gray-50'
                   } 
-  px-8 py-4 rounded-lg font-semibold border-2 w-full sm:w-auto ${
+  px-8 py-4 rounded-lg font-semibold border-2 ${
     darkMode ? 'border-gray-700' : 'border-gray-200'
   } 
   hover:shadow-lg transition-all duration-300 flex items-center justify-center`}
@@ -135,7 +136,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             className="flex justify-center lg:justify-end"
             delay={0.6}
           >
-            <InteractiveCard hoverScale={1.1} rotateOnHover={true}>
+            <InteractiveCard hoverScale={1.05} rotateOnHover={true}>
               <div className="relative">
                 <motion.div
                   className={`w-80 h-80 rounded-full ${
@@ -153,21 +154,22 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                       src="https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/WhatsApp%20Image%202025-04-21%20at%2011.09.01_c18a96a3%20(1).png?alt=media&token=4df8c10b-85d6-4aa2-af15-bcb9895067da"
                       alt="Willson Raj Manda"
                       className="w-full h-full object-cover"
+                      loading="eager"
                     />
                   </div>
                 </motion.div>
 
-                {/* Floating Elements */}
+                {/* Reduced floating elements animations */}
                 <motion.div
                   className={`absolute -top-4 -right-4 w-16 h-16 ${
                     darkMode ? 'bg-blue-600' : 'bg-blue-500'
                   } rounded-full flex items-center justify-center text-white text-2xl`}
                   animate={{
-                    y: [-10, 10, -10],
-                    rotate: [0, 180, 360],
+                    y: [-8, 8, -8],
+                    rotate: [0, 90, 180],
                   }}
                   transition={{
-                    duration: 4,
+                    duration: 6,
                     repeat: Infinity,
                     ease: 'easeInOut',
                   }}
@@ -179,11 +181,11 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                     darkMode ? 'bg-purple-600' : 'bg-purple-500'
                   } rounded-full flex items-center justify-center text-white text-xl`}
                   animate={{
-                    x: [-5, 5, -5],
-                    scale: [1, 1.2, 1],
+                    x: [-3, 3, -3],
+                    scale: [1, 1.1, 1],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 5,
                     repeat: Infinity,
                     ease: 'easeInOut',
                     delay: 1,
@@ -210,9 +212,9 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 ? 'text-gray-400 hover:text-white'
                 : 'text-gray-600 hover:text-gray-900'
             } transition-colors duration-300`}
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            whileHover={{ scale: 1.2 }}
+            whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{ pointerEvents: 'auto' }}
           >
@@ -222,6 +224,6 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
       </div>
     </motion.section>
   );
-};
+});
 
 export default Hero;

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Filter, Search } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import InteractiveCard from './InteractiveCard';
 
@@ -8,21 +8,20 @@ interface ProjectsProps {
   darkMode: boolean;
 }
 
-const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
+const Projects = memo<ProjectsProps>(({ darkMode }) => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       title: 'Sales-admin panel',
       description:
-        ' comprehensive sales administration panel built with React, providing dashboard functionality for managing sales data, analytics, and administrative tasks.',
+        'A comprehensive sales administration panel built with React, providing dashboard functionality for managing sales data, analytics, and administrative tasks.',
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fsale%20admin%20panel.png?alt=media&token=1b61850f-0685-45cd-b95a-b6be8c512ec3',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-
       demo: 'https://delicate-flan-051188.netlify.app/',
       featured: true,
     },
@@ -35,7 +34,6 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20job%20tracjer.png?alt=media&token=4932ad80-64ff-4cd4-8899-ab96b4d360d2',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-
       demo: 'https://chic-custard-7ccaa6.netlify.app/',
       featured: true,
     },
@@ -48,8 +46,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fweather.png?alt=media&token=d3bb02a8-a7e3-4347-a0c5-8477eabf2ae1',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-
-      demo: ' https://melodic-puffpuff-d15e43.netlify.app/',
+      demo: 'https://melodic-puffpuff-d15e43.netlify.app/',
       featured: true,
     },
     {
@@ -61,7 +58,6 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2FCrave%20Food%20Kart.png?alt=media&token=700e0239-420a-40bd-9c93-b38f0c956bda',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-
       demo: 'https://imaginative-semolina-527153.netlify.app/',
       featured: true,
     },
@@ -69,12 +65,11 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       id: 5,
       title: 'EatoHub Blog',
       description:
-        'Secure mobile banking application with biometric authentication, transaction history, and budget tracking.',
+        'A modern blog platform for food enthusiasts, featuring content management, user interactions, and responsive design for optimal reading experience.',
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Featohub%20blog.png?alt=media&token=dddad4cc-125f-43e4-a84e-3b25f6c5dada',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-
       demo: 'https://68724db615a725e0ced0d889--vocal-bubblegum-282481.netlify.app/',
       featured: true,
     },
@@ -87,32 +82,30 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20chat.png?alt=media&token=6b1d18bc-d018-4466-b833-1b510a600d67',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-
       demo: 'https://6872515af0a864e08b68c470--roaring-cranachan-2271ff.netlify.app/',
       featured: true,
     },
-  ];
+  ], []);
 
-  const categories = ['All', 'Full-Stack', 'Frontend', 'Mobile', 'AI/ML'];
+  const filteredProjects = useMemo(() => {
+    return projects.filter((project) => {
+      const matchesCategory =
+        activeFilter === 'All' || project.category === activeFilter;
+      const matchesSearch =
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.technologies.some((tech) =>
+          tech.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+      return matchesCategory && matchesSearch;
+    });
+  }, [projects, activeFilter, searchTerm]);
 
-  const filteredProjects = projects.filter((project) => {
-    const matchesCategory =
-      activeFilter === 'All' || project.category === activeFilter;
-    const matchesSearch =
-      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.technologies.some((tech) =>
-        tech.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    return matchesCategory && matchesSearch;
-  });
-
-  const featuredProjects = filteredProjects.filter(
-    (project) => project.featured
-  );
-  const regularProjects = filteredProjects.filter(
-    (project) => !project.featured
-  );
+  const { featuredProjects, regularProjects } = useMemo(() => {
+    const featured = filteredProjects.filter((project) => project.featured);
+    const regular = filteredProjects.filter((project) => !project.featured);
+    return { featuredProjects: featured, regularProjects: regular };
+  }, [filteredProjects]);
 
   return (
     <motion.section
@@ -139,20 +132,9 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
           </motion.h2>
         </AnimatedSection>
 
-        {/* Filters and Search */}
-
         {/* Featured Projects */}
         {featuredProjects.length > 0 && (
           <AnimatedSection className="mb-16" delay={0.3}>
-            <motion.h3
-              className={`text-2xl font-bold mb-8 ${
-                darkMode ? 'text-white' : 'text-gray-900'
-              }`}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            ></motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredProjects.map((project, index) => (
                 <motion.div
@@ -172,15 +154,6 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
         {/* Regular Projects */}
         {regularProjects.length > 0 && (
           <AnimatedSection delay={0.5}>
-            <motion.h3
-              className={`text-2xl font-bold mb-8 ${
-                darkMode ? 'text-white' : 'text-gray-900'
-              }`}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            ></motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularProjects.map((project, index) => (
                 <motion.div
@@ -222,7 +195,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       </div>
     </motion.section>
   );
-};
+});
 
 interface ProjectCardProps {
   project: any;
@@ -230,11 +203,15 @@ interface ProjectCardProps {
   featured?: boolean;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard = memo<ProjectCardProps>(({
   project,
   darkMode,
   featured = false,
 }) => {
+  const handleLinkClick = useCallback(() => {
+    window.open(project.demo, '_blank', 'noopener,noreferrer');
+  }, [project.demo]);
+
   return (
     <InteractiveCard
       className={`group relative overflow-hidden rounded-xl ${
@@ -242,18 +219,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       } shadow-lg ${
         featured ? 'ring-2 ring-gradient-to-r from-blue-600 to-purple-600' : ''
       }`}
-      hoverScale={1.05}
-      rotateOnHover={true}
+      hoverScale={1.02}
+      rotateOnHover={false}
     >
-      <motion.div whileHover={{ y: -5 }} transition={{ duration: 0.3 }}>
+      <motion.div whileHover={{ y: -3 }} transition={{ duration: 0.3 }}>
         {/* Featured Badge */}
         {featured && (
           <motion.div
             className="absolute top-4 right-4 z-10 bg-gradient-to-r from-blue-600 to-purple-600 
             text-white px-3 py-1 rounded-full text-sm font-medium"
-            initial={{ scale: 0, rotate: -180 }}
+            initial={{ scale: 0, rotate: -90 }}
             animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
           >
             Featured
           </motion.div>
@@ -261,12 +238,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Image */}
         <div className="relative overflow-hidden h-48">
-          <motion.img
+          <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
           />
 
           <motion.div
@@ -275,43 +251,37 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             whileHover={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={handleLinkClick}
               className="p-3 bg-white rounded-full text-black shadow-lg border border-gray-300 hover:bg-gray-100 transition-all duration-300"
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <ExternalLink size={20} />
-            </motion.a>
+            </motion.button>
           </motion.div>
         </div>
 
         {/* Content */}
         <div className="p-6">
           <div className="flex items-center justify-between mb-3">
-            <motion.h3
+            <h3
               className={`text-xl font-bold ${
                 darkMode ? 'text-white' : 'text-gray-900'
               }`}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
             >
               {project.title}
-            </motion.h3>
-            <motion.span
+            </h3>
+            <span
               className={`px-2 py-1 rounded-full text-xs font-medium 
               ${
                 darkMode
                   ? 'bg-blue-900/50 text-blue-300'
                   : 'bg-blue-100 text-blue-800'
               }`}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.2 }}
             >
               {project.category}
-            </motion.span>
+            </span>
           </div>
 
           <p
@@ -325,7 +295,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {/* Technologies */}
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech: string, index: number) => (
-              <motion.span
+              <span
                 key={index}
                 className={`px-2 py-1 rounded text-xs font-medium 
                 ${
@@ -333,38 +303,30 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     ? 'bg-gray-700 text-gray-300'
                     : 'bg-gray-100 text-gray-700'
                 }`}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                whileHover={{ scale: 1.1, y: -2 }}
               >
                 {tech}
-              </motion.span>
+              </span>
             ))}
           </div>
 
           {/* Links */}
           <div className="flex space-x-4">
-            <motion.a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleLinkClick}
               className={`flex items-center text-sm font-medium ${
                 darkMode
                   ? 'text-blue-400 hover:text-blue-300'
                   : 'text-blue-600 hover:text-blue-700'
               } transition-colors duration-200`}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
             >
               <ExternalLink size={16} className="mr-2" />
               Live Demo
-            </motion.a>
+            </button>
           </div>
         </div>
       </motion.div>
     </InteractiveCard>
   );
-};
+});
 
 export default Projects;
