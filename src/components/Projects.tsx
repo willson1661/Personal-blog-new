@@ -19,11 +19,11 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       description:
         ' comprehensive sales administration panel built with React, providing dashboard functionality for managing sales data, analytics, and administrative tasks.',
       image:
-        'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
+        'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fsale%20admin%20panel.png?alt=media&token=1b61850f-0685-45cd-b95a-b6be8c512ec3',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
       
-      demo: 'https://demo.com',
+      demo: 'https://delicate-flan-051188.netlify.app/',
       featured: true,
     },
     {
@@ -32,7 +32,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       description:
         'An AI-powered job application management system that helps users track their job applications, analyze application insights, and manage their job search process efficiently.',
       image:
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+        'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20job%20tracjer.png?alt=media&token=4932ad80-64ff-4cd4-8899-ab96b4d360d2',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
     
@@ -45,7 +45,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       description:
         'A modern weather application built with Vite, React, and TypeScript that provides real-time weather information and forecasts with a clean, responsive interface.',
       image:
-        'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=800',
+        'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fweather.png?alt=media&token=d3bb02a8-a7e3-4347-a0c5-8477eabf2ae1',
       category: 'Frontend',
    technologies: ['React', 'TypeScript', 'Tailwind CSS'],
 
@@ -58,7 +58,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       description:
         'A food discovery and ordering platform that allows users to browse different food categories, explore restaurants, and place orders for their favorite meals.',
       image:
-        'https://images.pexels.com/photos/265667/pexels-photo-265667.jpeg?auto=compress&cs=tinysrgb&w=800',
+        'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2FCrave%20Food%20Kart.png?alt=media&token=700e0239-420a-40bd-9c93-b38f0c956bda',
       category: 'Frontend',
     technologies: ['React', 'TypeScript', 'Tailwind CSS'],
      
@@ -71,7 +71,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       description:
         'Secure mobile banking application with biometric authentication, transaction history, and budget tracking.',
       image:
-        'https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800',
+        'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Featohub%20blog.png?alt=media&token=dddad4cc-125f-43e4-a84e-3b25f6c5dada',
     category: 'Frontend',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],
 
@@ -84,11 +84,11 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       description:
         'An AI-powered customer support chatbot system that provides automated customer service solutions with intelligent conversation handling and support ticket management.',
       image:
-        'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800',
+        'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20chat.png?alt=media&token=6b1d18bc-d018-4466-b833-1b510a600d67',
           category: 'Frontend',
         technologies: ['React', 'TypeScript', 'Tailwind CSS'],
 
-      demo: 'https://6872515af0a864e08b68c470--roaring-cranachan-2271ff.netlify.app/m',
+      demo: 'https://6872515af0a864e08b68c470--roaring-cranachan-2271ff.netlify.app/',
       featured: true,
     },
   ];
@@ -153,7 +153,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              ⭐ Featured Projects
+       
             </motion.h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredProjects.map((project, index) => (
