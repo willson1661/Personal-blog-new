@@ -296,17 +296,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             whileHover={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <motion.a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 
-                 transition-colors duration-200"
-              whileHover={{ scale: 1.1, rotate: 360 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Github size={20} />
-            </motion.a>
+        
             <motion.a
               href={project.demo}
               target="_blank"
@@ -378,21 +368,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 
           {/* Links */}
           <div className="flex space-x-4">
-            <motion.a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center text-sm font-medium ${
-                darkMode
-                  ? 'text-gray-300 hover:text-white'
-                  : 'text-gray-700 hover:text-gray-900'
-              } transition-colors duration-200`}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Github size={16} className="mr-2" />
-              Code
-            </motion.a>
+          
             <motion.a
               href={project.demo}
               target="_blank"
