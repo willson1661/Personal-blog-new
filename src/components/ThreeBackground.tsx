@@ -109,7 +109,7 @@ interface ThreeBackgroundProps {
 
 const ThreeBackground = memo<ThreeBackgroundProps>(({ darkMode }) => {
   return (
-    <div className="fixed inset-0 z-[1]" style={{ pointerEvents: 'none' }}>
+    <div className="fixed inset-0 z-[12]" style={{ pointerEvents: 'none' }}>
       <Canvas
         camera={{ position: [0, 0, 10], fov: 60 }}
         style={{ background: 'transparent', pointerEvents: 'none' }}
