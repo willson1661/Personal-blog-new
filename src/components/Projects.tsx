@@ -92,6 +92,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'A sleek, modern web application designed for ice cream shops to manage billing and transactions. Features a clean, user-friendly interface optimized for point-of-sale operations in ice cream parlors and frozen dessert businesses.',
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Flickees.png?alt=media&token=4ab99829-f478-4316-a4f8-669c3d380f9f',
+          category: 'Frontend',
       technologies: ['React', 'TypeScript', 'AI Integration'],
       demo: 'https://magical-quokka-499031.netlify.app/',
     },
