@@ -22,7 +22,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fsale%20admin%20panel.png?alt=media&token=1b61850f-0685-45cd-b95a-b6be8c512ec3',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      demo: 'https://delicate-flan-051188.netlify.app/',
+      demo: 'https://sales-adminpanel.netlify.app',
       featured: true,
     },
     {
@@ -34,7 +34,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20job%20tracjer.png?alt=media&token=4932ad80-64ff-4cd4-8899-ab96b4d360d2',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      demo: 'https://chic-custard-7ccaa6.netlify.app/',
+      demo: 'https://jobaiinsighttracker.netlify.app',
       featured: true,
     },
     {
@@ -46,7 +46,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fweather.png?alt=media&token=d3bb02a8-a7e3-4347-a0c5-8477eabf2ae1',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      demo: 'https://melodic-puffpuff-d15e43.netlify.app/',
+      demo: 'https://zapweatherapp.netlify.app',
       featured: true,
     },
     {
@@ -58,7 +58,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2FCrave%20Food%20Kart.png?alt=media&token=700e0239-420a-40bd-9c93-b38f0c956bda',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      demo: 'https://imaginative-semolina-527153.netlify.app/',
+      demo: 'https://cravefoodcart.netlify.app',
       featured: true,
     },
     {
@@ -70,7 +70,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Featohub%20blog.png?alt=media&token=dddad4cc-125f-43e4-a84e-3b25f6c5dada',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      demo: 'https://68724db615a725e0ced0d889--vocal-bubblegum-282481.netlify.app/',
+      demo: 'https://eatohubblog.netlify.app',
       featured: true,
     },
     {
@@ -82,7 +82,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20chat.png?alt=media&token=6b1d18bc-d018-4466-b833-1b510a600d67',
       category: 'Frontend',
       technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      demo: 'https://6872515af0a864e08b68c470--roaring-cranachan-2271ff.netlify.app/',
+      demo: 'https://aichatassistant.netlify.app',
       featured: true,
     },
     {
@@ -94,7 +94,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Flickees.png?alt=media&token=4ab99829-f478-4316-a4f8-669c3d380f9f',
           category: 'Frontend',
       technologies: ['React', 'TypeScript', 'AI Integration'],
-      demo: 'https://magical-quokka-499031.netlify.app/',
+      demo: 'https://lickees-ice-cream-billing-application.netlify.app',
     },
   ], []);
 
