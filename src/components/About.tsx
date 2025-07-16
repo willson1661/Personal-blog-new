@@ -162,16 +162,16 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
 
             {[
               {
-                year: 'Nov 2022 – Jan 2024',
+                year: 'Dec 2022 – Jan 2024',
                 title: 'Front-end Developer',
-                company: 'Tech Mahindra Co.',
+                company: 'Tech Mahindra',
                 description:
                   'Developed responsive web applications using ReactJS and modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality user interfaces. Implemented component-based architecture and optimized application performance for better user experience.',
               },
               {
-                year: 'Nov 2021 – Oct 2022',
+                year: 'Oct 2021 – Nov 2022',
                 title: 'Web-Designer',
-                company: 'Tech Mahindra Co.',
+                company: 'Tech Mahindra',
                 description:
                   'Creating web pages that seamlessly adapt to iPad screen dimensions, enhancing user experience. Developing interactive email templates to engage and captivate recipients. Collaborated with designers to craft clean interfaces and intuitive interactions, resulting in enhanced userexperiences. Utilized HTML5, CSS3, and jQuery & JavaScript to seamlessly integrate responsive UI designs into iPad dimensions.',
               },
@@ -183,7 +183,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                   'Provided end-to-end web design services for small businesses and startups. Managed client relationships, project timelines, and deliverables. Created custom websites using HTML, CSS, and JavaScript while ensuring responsive design principles.',
               },
               {
-                year: 'Nov 2018 – Oct 2019',
+                year: 'May 2019 – Oct 2020',
                 title: 'BPO Executive',
                 company: 'Private BPO Firm',
                 description:
