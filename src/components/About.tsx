@@ -162,14 +162,14 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
 
             {[
               {
-                year: 'Dec 2022 – Jan 2024',
+                year: 'Aug 2023 – Jan 2024',
                 title: 'Front-end Developer',
                 company: 'Tech Mahindra',
                 description:
                   'Developed responsive web applications using ReactJS and modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality user interfaces. Implemented component-based architecture and optimized application performance for better user experience.',
               },
               {
-                year: 'Oct 2021 – Nov 2022',
+                year: 'Oct 2021 – Jul 2023',
                 title: 'Web-Designer',
                 company: 'Tech Mahindra',
                 description:
