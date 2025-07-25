@@ -2,20 +2,20 @@ import React from "react";
 
 const solarSystemStyles = `
 .solar-container {
-  font-size: 10px;
-  width: 40em;
-  height: 40em;
-  position: relative;
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
 }
 .sun {
-  position: absolute;
-  top: 15em;
-  left: 15em;
-  width: 10em;
-  height: 10em;
-  background-color: yellow;
-  border-radius: 50%;
-  box-shadow: 0 0 3em white;
+    position: absolute;
+    top: 4em;
+left: 48.8em;
+    width: 32em;
+    height: 32em;
+    background-color: #2e2e2c;
+    border-radius: 50%;
+    box-shadow: 0 0 3em white;
 }
 .earth, .moon {
   position: absolute;
@@ -25,18 +25,18 @@ const solarSystemStyles = `
   border-radius: 50%;
 }
 .earth {
-  top: 5em;
-  left: 5em;
-  width: 30em;
-  height: 30em;
-  animation: orbit 36.5s linear infinite;
+    top: -5em;
+    left: 38em;
+    width: 53em;
+    height: 53em;
+    animation: orbit 36.5s linear infinite;
 }
 .moon {
-  top: 0;
-  right: 0;
-  width: 8em;
-  height: 8em;
-  animation: orbit 2.7s linear infinite;
+    top: 45px;
+    right: 36px;
+    width: 8em;
+    height: 8em;
+    animation: orbit 2.7s linear infinite;
 }
 .earth::before,
 .moon::before {
@@ -45,18 +45,20 @@ const solarSystemStyles = `
   border-radius: 50%;
 }
 .earth::before {
-  top: 2.8em;
-  right: 2.8em;
-  width: 3em;
-  height: 3em;
-  background-color: aqua;
+    top: 6.8em;
+    right: 5.8em;
+    width: 3em;
+    height: 3em;
+    background-color: #fffdfd;
+    box-shadow: 0 0 3em #e7e7e7;
 }
 .moon::before {
-  top: 0.8em;
-  right: 0.2em;
-  width: 1.2em;
-  height: 1.2em;
-  background-color: silver;
+    top: 2px;
+    right: 10px;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: silver;
+    box-shadow: 0 0 3em #e7e7e7;
 }
 @keyframes orbit {
   to {
