@@ -33,8 +33,8 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
       className={`min-h-screen flex items-center justify-center relative overflow-hidden z-[10]
       ${
         darkMode
-          ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900'
-          : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
+      ? 'bg-gradient-to-br from-black via-black to-black'
+: 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
       }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
