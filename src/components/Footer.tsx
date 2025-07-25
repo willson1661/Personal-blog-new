@@ -84,11 +84,13 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               Willson Raj Manda
             </motion.h3>
             <motion.p
-              className="text-gray-600 mb-6 max-w-md leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+        className={`${
+    darkMode ? 'text-gray-300' : 'text-gray-700'
+  } mb-6 max-w-md leading-relaxed`}
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, delay: 0.2 }}
             >
               Front-end Developer & Web-Designer passionate about creating
               beautiful, functional, and user-centered digital experiences.
