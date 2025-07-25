@@ -42,7 +42,7 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
     >
       {/* Solar System Animated Background */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-40">
-        <SolarSystem />
+<SolarSystem darkMode={darkMode} />
       </div>
 
       {/* Background Pattern */}
