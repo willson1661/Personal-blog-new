@@ -201,3 +201,17 @@ p {
 .focus-ring {
   @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900;
 }
+
+/* Responsive utilities for animations and backgrounds */
+.responsive-animation {
+  @apply scale-75 sm:scale-90 md:scale-100 lg:scale-110;
+}
+
+.responsive-background {
+  @apply opacity-30 sm:opacity-35 md:opacity-40 lg:opacity-45;
+}
+
+/* Prevent horizontal overflow on small screens */
+.prevent-overflow {
+  @apply overflow-x-hidden;
+}
