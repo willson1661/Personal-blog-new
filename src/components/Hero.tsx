@@ -167,39 +167,8 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
                 </motion.div>
 
                 {/* Reduced floating elements animations */}
-                <motion.div
-                  className={`absolute -top-4 -right-4 w-16 h-16 ${
-                    darkMode ? 'bg-blue-600' : 'bg-blue-500'
-                  } rounded-full flex items-center justify-center text-white text-2xl`}
-                  animate={{
-                    y: [-8, 8, -8],
-                    rotate: [0, 90, 180],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                >
-                  ⚡
-                </motion.div>
-                <motion.div
-                  className={`absolute -bottom-4 -left-4 w-12 h-12 ${
-                    darkMode ? 'bg-purple-600' : 'bg-purple-500'
-                  } rounded-full flex items-center justify-center text-white text-xl`}
-                  animate={{
-                    x: [-3, 3, -3],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: 1,
-                  }}
-                >
-                  🚀
-                </motion.div>
+              
+               
               </div>
             </InteractiveCard>
           </AnimatedSection>
