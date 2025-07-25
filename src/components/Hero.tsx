@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown, Download } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import InteractiveCard from './InteractiveCard';
+import SolarSystem from './SolarSystem';
 
 interface HeroProps {
   darkMode: boolean;
@@ -30,18 +31,22 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
   return (
     <motion.section
       id="home"
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden z-[10]
-      ${
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden z-[10] ${
         darkMode
-      ? 'bg-gradient-to-br from-black via-black to-black'
-: 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
+          ? 'bg-gradient-to-br from-black via-black to-black'
+          : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
       }`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
+      {/* Solar System Animated Background */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-40">
+        <SolarSystem />
+      </div>
+
       {/* Background Pattern */}
-      <div className="absolute opacity-10">
+      <div className="absolute opacity-10 z-0">
         <div
           className="absolute"
           style={{
@@ -53,13 +58,15 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
         ></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-[11]">
+      {/* Main Hero content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-[10]">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <AnimatedSection className="text-center lg:text-left" delay={0.2}>
             <motion.h1
-              className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 
-              ${darkMode ? 'text-white' : 'text-gray-900'} leading-tight`}
+              className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              } leading-tight`}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -217,6 +224,7 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             style={{ pointerEvents: 'auto' }}
+            aria-label="Scroll to About section"
           >
             <ArrowDown size={24} />
           </motion.button>
