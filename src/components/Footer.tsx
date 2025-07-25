@@ -42,7 +42,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
   return (
     <motion.footer
       className={`relative ${
-        darkMode ? 'bg-gray-900' : 'bg-gray-900'
+        darkMode ? 'bg-gradient-to-br from-black via-black to-black' : 'bg-gray-50'
       } text-white`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
