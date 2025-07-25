@@ -31,7 +31,7 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
   return (
     <motion.section
       id="home"
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden prevent-overflow z-[10] ${
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden z-[10] ${
         darkMode
           ? 'bg-gradient-to-br from-black via-black to-black'
           : 'bg-gradient-to-br from-blue-50 via-white to-blue-50'
@@ -41,10 +41,8 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
       transition={{ duration: 1.5 }}
     >
       {/* Solar System Animated Background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 responsive-background overflow-hidden">
-        <div className="w-full h-full flex items-center justify-center responsive-animation">
-          <SolarSystem darkMode={darkMode} />
-        </div>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-40">
+<SolarSystem darkMode={darkMode} />
       </div>
 
       {/* Background Pattern */}
