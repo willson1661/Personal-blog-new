@@ -153,7 +153,7 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
                     <img
                       src="https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/WhatsApp%20Image%202025-04-21%20at%2011.09.01_c18a96a3%20(1).png?alt=media&token=4df8c10b-85d6-4aa2-af15-bcb9895067da"
                       alt="Willson Raj Manda"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover filter brightness-[0.7]"
                       loading="eager"
                     />
                   </div>
