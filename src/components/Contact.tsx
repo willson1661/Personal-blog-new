@@ -92,7 +92,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
   return (
     <motion.section
       id="contact"
-      className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}
+      className={`py-20 ${darkMode ? 'bg-gradient-to-br from-black via-black to-black' : 'bg-white'}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
