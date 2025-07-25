@@ -226,7 +226,7 @@ const ProjectCard = memo<ProjectCardProps>(({
   return (
     <InteractiveCard
       className={`group relative overflow-hidden rounded-xl ${
-        darkMode ? 'bg-gray-800' : 'bg-white'
+        darkMode ? 'bg-gradient-to-br from-black via-black to-black' : 'bg-white'
       } shadow-lg ${
         featured ? 'ring-2 ring-gradient-to-r from-blue-600 to-purple-600' : ''
       }`}
