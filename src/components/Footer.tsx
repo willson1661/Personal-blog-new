@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, ArrowUp, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Heart, ArrowUp, Linkedin, Mail } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 import InteractiveCard from './InteractiveCard';
 
@@ -28,8 +28,11 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3B7ynMK6Q6TZW%2FUEvURNNMpA%3D%3D',
     },
-
-    { icon: Mail, name: 'Email', url: 'mailto:officialwillson05@gmail.com' },
+    {
+      icon: Mail,
+      name: 'Email',
+      url: 'mailto:officialwillson05@gmail.com',
+    },
   ];
 
   const scrollToSection = (href: string) => {
@@ -126,7 +129,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Quick Links */}
           <AnimatedSection delay={0.4}>
             <motion.h4
-              className="text-lg font-semibold mb-4"
+              className="text-gray-700 dark:text-gray-300 text-lg font-semibold mb-4"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -145,7 +148,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 >
                   <motion.button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-600 hover:text-white transition-colors duration-300 inline-block"
+                    className="text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 inline-block"
                     whileHover={{ x: 5, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -159,7 +162,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Contact Info */}
           <AnimatedSection delay={0.6}>
             <motion.h4
-              className="text-lg font-semibold mb-4"
+              className="text-gray-700 dark:text-gray-300 text-lg font-semibold mb-4"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -170,7 +173,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <div className="space-y-3">
               <motion.a
                 href="mailto:officialwillson05@gmail.com"
-                className="block text-gray-600 hover:text-white transition-colors duration-300"
+                className="block text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -181,7 +184,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               </motion.a>
               <motion.a
                 href=""
-                className="block text-gray-600 hover:text-white transition-colors duration-300"
+                className="block text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -197,13 +200,11 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                39-2-26, hyderabad, Telangana-500058, India.
+                39-2-26, Hyderabad, Telangana - 500058, India.
               </motion.p>
             </div>
           </AnimatedSection>
         </motion.div>
-
-        {/* Newsletter Signup */}
 
         {/* Bottom Section */}
         <motion.div
@@ -235,7 +236,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             transition={{ duration: 0.8, delay: 1 }}
           >
             <p>&copy; {currentYear} Willson Raj Manda. All rights reserved.</p>
-            <p className="text-sm mt-1">Built with React, Javascript & Css</p>
+            <p className="text-sm mt-1">Built with React, JavaScript & CSS</p>
           </motion.div>
         </motion.div>
       </div>
