@@ -72,10 +72,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Brand Section */}
           <AnimatedSection className="lg:col-span-2" delay={0.2}>
             <motion.h3
-             className="text-2xl font-bold mb-4 
-  text-black 
-  dark:text-transparent dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-400 dark:bg-clip-text"
-
+              className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -84,13 +81,11 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               Willson Raj Manda
             </motion.h3>
             <motion.p
-        className={`${
-    darkMode ? 'text-gray-300' : 'text-gray-700'
-  } mb-6 max-w-md leading-relaxed`}
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-gray-600 mb-6 max-w-md leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               Front-end Developer & Web-Designer passionate about creating
               beautiful, functional, and user-centered digital experiences.
@@ -131,7 +126,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Quick Links */}
           <AnimatedSection delay={0.4}>
             <motion.h4
-              className="block text-gray-600 hover:text-white transition-colors duration-300"
+              className="text-lg font-semibold mb-4"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -164,7 +159,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Contact Info */}
           <AnimatedSection delay={0.6}>
             <motion.h4
-              className="block text-gray-600 hover:text-white transition-colors duration-300"
+              className="text-lg font-semibold mb-4"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
