@@ -173,7 +173,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <div className="space-y-3">
               <motion.a
                 href="mailto:officialwillson05@gmail.com"
-                className="block text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+              className="block text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
