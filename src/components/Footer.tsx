@@ -131,7 +131,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Quick Links */}
           <AnimatedSection delay={0.4}>
             <motion.h4
-              className="text-lg font-semibold mb-4"
+              className="block text-gray-600 hover:text-white transition-colors duration-300"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -164,7 +164,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Contact Info */}
           <AnimatedSection delay={0.6}>
             <motion.h4
-              className="text-lg font-semibold mb-4"
+              className="block text-gray-600 hover:text-white transition-colors duration-300"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
