@@ -175,7 +175,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <div className="space-y-3">
               <motion.a
                 href="mailto:officialwillson05@gmail.com"
-                className="block text-gray-600 hover:text-white transition-colors duration-300"
+                className="block text-gray-300 hover:text-white transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -186,7 +186,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               </motion.a>
               <motion.a
                 href=""
-                className="block text-gray-600 hover:text-white transition-colors duration-300"
+                className="block text-gray-300 hover:text-white transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -196,7 +196,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 9052820829
               </motion.a>
               <motion.p
-                className="text-gray-600"
+                className="text-gray-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -219,21 +219,21 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.div
-            className="flex items-center text-gray-600 mb-4 md:mb-0"
+            className="flex items-center text-gray-300 mb-4 md:mb-0"
             whileHover={{ scale: 1.05 }}
           >
-            <span>Made with</span>
+     
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
             >
-              <Heart className="w-4 h-4 mx-2 text-red-500" />
+
             </motion.div>
-            <span>by Willson Raj Manda</span>
+        
           </motion.div>
 
           <motion.div
-            className="text-gray-600 text-center md:text-right"
+            className="text-gray-300 text-center md:text-right"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
