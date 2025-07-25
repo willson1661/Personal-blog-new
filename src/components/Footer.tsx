@@ -45,7 +45,9 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
   return (
     <motion.footer
       className={`relative ${
-        darkMode ? 'bg-gradient-to-br from-black via-black to-black' : 'bg-gray-50'
+        darkMode
+          ? 'bg-gradient-to-br from-black via-black to-black'
+          : 'bg-gray-50'
       } text-white`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -148,7 +150,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 >
                   <motion.button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300 inline-block"
+                    className="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors duration-300 inline-block"
                     whileHover={{ x: 5, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -173,7 +175,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <div className="space-y-3">
               <motion.a
                 href="mailto:officialwillson05@gmail.com"
-                className="block text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                className="block text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -184,7 +186,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               </motion.a>
               <motion.a
                 href=""
-                className="block text-gray-600 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+                className="block text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors duration-300"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
