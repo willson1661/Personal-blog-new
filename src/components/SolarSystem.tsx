@@ -18,14 +18,14 @@ const SolarSystem: React.FC<SolarSystemProps> = ({ darkMode }) => {
       left: 48.8em;
       width: 32em;
       height: 32em;
-      background-color: ${darkMode ? "#2e2e2c" : "#dddddd"};
+      background-color: ${darkMode ? "#2e2e2c" : "#000000"};
       border-radius: 50%;
-      box-shadow: 0 0 2em ${darkMode ? "white" : "#bdbdbd"};
+      box-shadow: 0 0 2em ${darkMode ? "white" : "#000000"};
   }
   .earth, .moon {
     position: absolute;
     border-style: solid;
-    border-color: ${darkMode ? "white transparent transparent transparent" : "#878787 transparent transparent transparent"};
+    border-color: ${darkMode ? "white transparent transparent transparent" : "#000000 transparent transparent transparent"};
     border-width: 0.1em 0.1em 0 0;
     border-radius: 50%;
   }
@@ -54,16 +54,16 @@ const SolarSystem: React.FC<SolarSystemProps> = ({ darkMode }) => {
       right: 4.8em;
       width: 3em;
       height: 3em;
-      background-color: ${darkMode ? "#fffdfd" : "#a5a5a5"};
-      box-shadow: 0 0 3em ${darkMode ? "#e7e7e7" : "#aaaaaa"};
+      background-color: ${darkMode ? "#fffdfd" : "#000000"};
+      box-shadow: 0 0 3em ${darkMode ? "#e7e7e7" : "#000000"};
   }
   .moon::before {
       top: 2px;
       right: 10px;
       width: 1.2em;
       height: 1.2em;
-      background-color: ${darkMode ? "silver" : "#b7b7b7"};
-      box-shadow: 0 0 3em ${darkMode ? "#e7e7e7" : "#acacac"};
+      background-color: ${darkMode ? "silver" : "#000000"};
+      box-shadow: 0 0 3em ${darkMode ? "#e7e7e7" : "#000000"};
   }
   @keyframes orbit {
     to {
