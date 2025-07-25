@@ -72,7 +72,10 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           {/* Brand Section */}
           <AnimatedSection className="lg:col-span-2" delay={0.2}>
             <motion.h3
-              className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+             className="text-2xl font-bold mb-4 
+  text-black 
+  dark:text-transparent dark:bg-gradient-to-r dark:from-blue-400 dark:to-purple-400 dark:bg-clip-text"
+
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
