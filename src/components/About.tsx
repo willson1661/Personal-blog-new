@@ -166,7 +166,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                 title: 'Front-end Developer',
                 company: 'Tech Mahindra',
                 description:
-                  'Developed responsive web applications using ReactJS and modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality user interfaces. Implemented component-based architecture and optimized application performance for better user experience.',
+                  'Developed responsive web applications using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver high-quality user interfaces. Implemented component-based architecture and optimized application performance for better user experience.',
               },
               {
                 year: 'Oct 2021 – Jul 2023',
