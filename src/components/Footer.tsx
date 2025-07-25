@@ -49,8 +49,8 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
     <motion.footer
       className={`relative ${
         darkMode
-          ? 'bg-gradient-to-br from-black via-black to-black'
-          : 'bg-gray-50' // This is your light mode background
+          ? 'bg-gradient-to-br from-black via-black to-black text-white'
+          : 'bg-gray-50 text-black'
       }`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -58,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
       transition={{ duration: 1 }}
     >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div
           className="absolute inset-0"
           style={{
@@ -69,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
         ></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-black dark:text-white">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           initial={{ opacity: 0, y: 50 }}
@@ -153,7 +153,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 >
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="inline-block text-black dark:text-white" // This should be black in light mode
+                    className="inline-block"
                   >
                     {link.name}
                   </button>
@@ -176,7 +176,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <div className="space-y-3">
               <motion.a
                 href="mailto:officialwillson05@gmail.com"
-                className="block text-black dark:text-white" // This should be black in light mode
+                className="block"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -185,8 +185,8 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 officialwillson05@gmail.com
               </motion.a>
               <motion.a
-                href="tel:9052820829" // Changed href to 'tel:' for phone number link
-                className="block text-black dark:text-white" // This should be black in light mode
+                href="tel:9052820829"
+                className="block"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -195,7 +195,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 9052820829
               </motion.a>
               <motion.p
-                className="text-black dark:text-white" // This should be black in light mode
+                className=""
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -216,14 +216,13 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.div
-            className="text-black dark:text-white" // This should be black in light mode
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             <p>&copy; {currentYear} Willson Raj Manda. All rights reserved.</p>
-            <p className="text-sm mt-1">Built with React, JavaScript & CSS</p>
+            <p className="text-sm mt-1">Built with React, JavaScript &amp; CSS</p>
           </motion.div>
         </motion.div>
       </div>
