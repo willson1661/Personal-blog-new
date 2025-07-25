@@ -121,7 +121,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
   return (
     <motion.section
       id="projects"
-      className={`py-20 ${darkMode ? 'bg-gray-900' : 'bg-white'}`}
+      className={`py-20 ${darkMode ? 'bg-gradient-to-br from-black via-black to-black' : 'bg-white'}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -226,7 +226,7 @@ const ProjectCard = memo<ProjectCardProps>(({
   return (
     <InteractiveCard
       className={`group relative overflow-hidden rounded-xl ${
-        darkMode ? 'bg-gradient-to-br from-black via-black to-black' : 'bg-white'
+        darkMode ? 'bg-gray-800' : 'bg-white'
       } shadow-lg ${
         featured ? 'ring-2 ring-gradient-to-r from-blue-600 to-purple-600' : ''
       }`}
