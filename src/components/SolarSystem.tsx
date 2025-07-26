@@ -6,12 +6,14 @@ interface SolarSystemProps {
 
 const SolarSystem: React.FC<SolarSystemProps> = ({ darkMode }) => {
   const solarSystemStyles = `
-  .solar-container {
-      font-size: 10px;
-      width: 40em;
-      height: 40em;
-      position: relative;
-  }
+.solar-container {
+    font-size: 10px;
+    width: 40em;
+    height: 40em;
+    position: relative;
+    left: -48.7em;
+    z-index: 1;
+}
   .sun {
       position: absolute;
       top: 4em;
