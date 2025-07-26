@@ -155,15 +155,16 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
                       darkMode ? 'bg-gray-800' : 'bg-white'
                     }`}
                   >
+                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-40">
+<SolarSystem darkMode={darkMode} />
+      </div>
                     <img
                       src="https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/WhatsApp%20Image%202025-04-21%20at%2011.09.01_c18a96a3%20(1).png?alt=media&token=4df8c10b-85d6-4aa2-af15-bcb9895067da"
                       alt="Willson Raj Manda"
                       className="w-full h-full object-cover filter brightness-[0.7]"
                       loading="eager"
                     />
-                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-40">
-<SolarSystem darkMode={darkMode} />
-      </div>
+                      
                   </div>
                 </motion.div>
 
