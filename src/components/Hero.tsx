@@ -41,9 +41,7 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
       transition={{ duration: 1.5 }}
     >
       {/* Solar System Animated Background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-40">
-<SolarSystem darkMode={darkMode} />
-      </div>
+   
 
       {/* Background Pattern */}
       <div className="absolute opacity-10 z-0">
@@ -163,6 +161,9 @@ const Hero = memo<HeroProps>(({ darkMode }) => {
                       className="w-full h-full object-cover filter brightness-[0.7]"
                       loading="eager"
                     />
+                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-40">
+<SolarSystem darkMode={darkMode} />
+      </div>
                   </div>
                 </motion.div>
 
