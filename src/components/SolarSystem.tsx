@@ -6,84 +6,92 @@ interface SolarSystemProps {
 
 const SolarSystem: React.FC<SolarSystemProps> = ({ darkMode }) => {
   const solarSystemStyles = `
-  .solar-container {
-      font-size: 10px;
-      width: 40em;
-      height: 40em;
+    .solar-container {
       position: relative;
-  }
-  
-  /* Hide solar system on screens between 200px and 600px */
-  @media (min-width: 200px) and (max-width: 600px) {
-    .solar-container {
-      display: none;
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto;
+      font-size: 1vw; /* Scale animations with viewport width */
     }
-  }
-  
-  /* Show solar system on screens between 601px and 3000px */
-  @media (min-width: 601px) and (max-width: 3000px) {
-    .solar-container {
-      display: block;
-    }
-  }
-  .sun {
+
+    .sun {
       position: absolute;
-      top: 4em;
-      left: 48.8em;
-      width: 32em;
-      height: 32em;
-      background-color: ${darkMode ? "#2e2e2c" : "#000000"};
+      top: 50%;
+      left: 50%;
+      width: 16em;
+      height: 16em;
+      background-color: ${darkMode ? "#2e2e2c" : "#000"};
       border-radius: 50%;
-      box-shadow: 0 0 2em ${darkMode ? "white" : "#000000"};
-  }
-  .earth, .moon {
-    position: absolute;
-    border-style: solid;
-    border-color: ${darkMode ? "white transparent transparent transparent" : "#000000 transparent transparent transparent"};
-    border-width: 0.1em 0.1em 0 0;
-    border-radius: 50%;
-  }
-  .earth {
-      top: -4em;
-      left: 42em;
-      width: 48em;
-      height: 48em;
-      animation: orbit 36.5s linear infinite;
-  }
-  .moon {
-      top: 48px;
-      right: 23px;
-      width: 8em;
-      height: 8em;
-      animation: orbit 2.7s linear infinite;
-  }
-  .earth::before,
-  .moon::before {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-  }
-  .earth::before {
-      top: 6.8em;
-      right: 4.8em;
-      width: 3em;
-      height: 3em;
-      background-color: ${darkMode ? "#fffdfd" : "#000000"};
-      box-shadow: 0 0 3em ${darkMode ? "#e7e7e7" : "#000000"};
-  }
-  .moon::before {
-      top: 2px;
-      right: 10px;
-      width: 1.2em;
-      height: 1.2em;
-      background-color: ${darkMode ? "silver" : "#000000"};
-      box-shadow: 0 0 3em ${darkMode ? "#e7e7e7" : "#000000"};
-  }
-  @keyframes orbit {
-    to {
-      transform: rotate(360deg);
+      box-shadow: 0 0 2em ${darkMode ? "white" : "#000"};
+      transform: translate(-50%, -50%);
     }
-  }
+
+    .earth,
+    .moon {
+      position: absolute;
+      border-style: solid;
+      border-color: ${darkMode ? "white transparent transparent transparent" : "#000 transparent transparent transparent"};
+      border-width: 0.1em 0.1em 0 0;
+      border-radius: 50%;
+    }
+
+    .earth {
+      top: 50%;
+      left: 50%;
+      width: 24em;
+      height: 24em;
+      animation: orbit 36.5s linear infinite;
+      transform: translate(-50%, -50%);
+    }
+
+    .moon {
+      top: 50%;
+      left: 50%;
+      width: 4em;
+      height: 4em;
+      animation: orbit 2.7s linear infinite;
+      transform: translate(-50%, -50%);
+    }
+
+    .earth::before,
+    .moon::before {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+    }
+
+    .earth::before {
+      top: 50%;
+      left: 0;
+      width: 2em;
+      height: 2em;
+      background-color: ${darkMode ? "#fffdfd" : "#000"};
+      box-shadow: 0 0 2em ${darkMode ? "#e7e7e7" : "#000"};
+      transform: translateY(-50%);
+    }
+
+    .moon::before {
+      top: 50%;
+      left: 0;
+      width: 0.8em;
+      height: 0.8em;
+      background-color: ${darkMode ? "silver" : "#000"};
+      box-shadow: 0 0 2em ${darkMode ? "#e7e7e7" : "#000"};
+      transform: translateY(-50%);
+    }
+
+    @keyframes orbit {
+      to {
+        transform: rotate(360deg) translate(-50%, -50%);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .solar-container {
+        font-size: 2.5vw;
+      }
+    }
   `;
 
   return (
