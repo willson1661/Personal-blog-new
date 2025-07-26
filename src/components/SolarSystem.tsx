@@ -12,6 +12,20 @@ const SolarSystem: React.FC<SolarSystemProps> = ({ darkMode }) => {
       height: 40em;
       position: relative;
   }
+  
+  /* Hide solar system on screens between 200px and 600px */
+  @media (min-width: 200px) and (max-width: 600px) {
+    .solar-container {
+      display: none;
+    }
+  }
+  
+  /* Show solar system on screens between 601px and 3000px */
+  @media (min-width: 601px) and (max-width: 3000px) {
+    .solar-container {
+      display: block;
+    }
+  }
   .sun {
       position: absolute;
       top: 4em;
