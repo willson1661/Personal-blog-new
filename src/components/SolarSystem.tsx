@@ -8,16 +8,10 @@ const SolarSystem: React.FC<SolarSystemProps> = ({ darkMode }) => {
   const solarSystemStyles = `
   .solar-container {
       font-size: 10px;
-      width: 40vw;
-      height: 40vh;
+      width: 40em;
+      height: 40em;
       position: relative;
   }
-      .media screen and (max-width:1450px){
- .solar-container {
-      width: 30vw;
-      height: 30vh;
-  }
-      }
   .sun {
       position: absolute;
       top: 4em;
