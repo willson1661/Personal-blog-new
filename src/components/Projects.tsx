@@ -73,7 +73,6 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
       demo: 'https://eatohubblog.netlify.app',
       featured: true,
     },
-  
     {
       id: 6,
       title: 'Modern Ice Cream Billing Application',
@@ -81,11 +80,12 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
         'A sleek, modern web application designed for ice cream shops to manage billing and transactions. Features a clean, user-friendly interface optimized for point-of-sale operations in ice cream parlors and frozen dessert businesses.',
       image:
         'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Flickees.png?alt=media&token=4ab99829-f478-4316-a4f8-669c3d380f9f',
-          category: 'Frontend',
-      technologies: ['React', 'TypeScript', 'AI Integration'],
+      category: 'Frontend',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
       demo: 'https://lickees-ice-cream-billing-application.netlify.app',
       featured: true,
     },
+   
   ], []);
 
   const filteredProjects = useMemo(() => {
