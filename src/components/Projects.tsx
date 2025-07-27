@@ -73,20 +73,9 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
       demo: 'https://eatohubblog.netlify.app',
       featured: true,
     },
+  
     {
       id: 6,
-      title: 'AI Chat Assistant',
-      description:
-        'An AI-powered customer support chatbot system that provides automated customer service solutions with intelligent conversation handling and support ticket management.',
-      image:
-        'https://firebasestorage.googleapis.com/v0/b/todoappimagestorage.appspot.com/o/personal%20blog%20projects%20images%2Fai%20chat.png?alt=media&token=6b1d18bc-d018-4466-b833-1b510a600d67',
-      category: 'Frontend',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS'],
-      demo: 'https://aichatassistant.netlify.app',
-      featured: true,
-    },
-    {
-      id: 7,
       title: 'Modern Ice Cream Billing Application',
       description:
         'A sleek, modern web application designed for ice cream shops to manage billing and transactions. Features a clean, user-friendly interface optimized for point-of-sale operations in ice cream parlors and frozen dessert businesses.',
