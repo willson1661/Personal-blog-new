@@ -84,6 +84,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
           category: 'Frontend',
       technologies: ['React', 'TypeScript', 'AI Integration'],
       demo: 'https://lickees-ice-cream-billing-application.netlify.app',
+      featured: true,
     },
   ], []);
 
