@@ -123,11 +123,7 @@ const ThreeBackground = memo<ThreeBackgroundProps>(({ darkMode }) => {
         <ParticleSystem count={500} darkMode={darkMode} />
 
         {/* Reduced number of floating geometries */}
-        <FloatingGeometry
-          position={[-4, 2, -4]}
-          darkMode={darkMode}
-          geometry="box"
-        />
+      
         <FloatingGeometry
           position={[4, -2, -3]}
           darkMode={darkMode}
