@@ -124,16 +124,7 @@ const ThreeBackground = memo<ThreeBackgroundProps>(({ darkMode }) => {
 
         {/* Reduced number of floating geometries */}
       
-        <FloatingGeometry
-          position={[4, -2, -3]}
-          darkMode={darkMode}
-          geometry="sphere"
-        />
-        <FloatingGeometry
-          position={[-3, -2, -5]}
-          darkMode={darkMode}
-          geometry="torus"
-        />
+     
       </Canvas>
     </div>
   );
