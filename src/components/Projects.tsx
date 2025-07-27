@@ -75,7 +75,7 @@ const Projects = memo<ProjectsProps>(({ darkMode }) => {
     },
     {
       id: 6,
-      title: 'Modern Ice Cream Billing Application',
+      title: 'Ice Cream Billing App',
       description:
         'A sleek, modern web application designed for ice cream shops to manage billing and transactions. Features a clean, user-friendly interface optimized for point-of-sale operations in ice cream parlors and frozen dessert businesses.',
       image:
